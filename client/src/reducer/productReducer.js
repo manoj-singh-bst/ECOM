@@ -31,4 +31,12 @@ export default (state = initState, action) => {
       };
       break;
   }
+  switch (action.type) {
+    case "GET_PRODUCT_SUCCESS":
+      state = {
+        ...state,
+        product: action.payload.product,
+      };
+      break;
+  }
 };
