@@ -16,6 +16,7 @@ mongoose
   });
 
 var productsRoute = require("./routes/productsRoutes");
+var orderRoute = require("./routes/orderRoute");
 const userRoute=require("./routes/userRoute")
 
 app.use("/api/products/", productsRoute);
@@ -26,6 +27,7 @@ app.get("/", (req, res) => {
 app.use(bodyparse.json({ extended: true }));
 app.use(bodyparse.urlencoded({ extended: true }));
 app.use(cors());
+app.use("/api/orders/", orderRoute);
 
 const port = 3001;
 app.listen(port, () => {

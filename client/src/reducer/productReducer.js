@@ -20,3 +20,25 @@ export const getAllProductsReducer = (state = { products: [] }, action) => {
       return state;
   }
 };
+
+// const initState = {
+//   product: [],
+// };
+// export default (state = initState, action) => {
+//   switch (action.type) {
+//     case "GET_PRODUCT_REQUEST":
+//       state = {
+//         ...state,
+//         product: action.payload.product,
+//       };
+//       break;
+//   }
+//   switch (action.type) {
+//     case "GET_PRODUCT_SUCCESS":
+//       state = {
+//         ...state,
+//         product: action.payload.product,
+//       };
+//       break;
+//   }
+// };
