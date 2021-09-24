@@ -14,4 +14,3 @@ router.get("/getallproducts", (req, res) => {
   });
 });
 module.exports = router;
-
