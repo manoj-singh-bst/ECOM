@@ -5,7 +5,7 @@ import products from "../Product";
 
 export default function ProductdesScreen({ match }) {
   const productid = match.params.id;
-  const product = products.find((product) => product.id == productid); // id matchs with the url id
+  const product = products.find((product) => product.id === productid); // id matchs with the url id
   return (
     <div>
       <div className="row">
