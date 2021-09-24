@@ -1,11 +1,11 @@
 import React from "react";
-import products from "../Product";
 
 //showing the products with all the details
 
 export default function ProductdesScreen({ match }) {
+  const products = [];
   const productid = match.params.id;
-  const product = products.find((product) => product.id == productid); // id matchs with the url id
+  const product = products.find((product) => product.id === productid); // id matchs with the url id
   return (
     <div>
       <div className="row">

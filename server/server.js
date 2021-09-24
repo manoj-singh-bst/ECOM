@@ -17,7 +17,7 @@ mongoose
 
 var productsRoute = require("./routes/productsRoutes");
 
-app.use("/api/getallproducts/", productsRoute);
+app.use("/api/products/", productsRoute);
 app.get("/", (req, res) => {
   res.send("this is from the backend");
 });
