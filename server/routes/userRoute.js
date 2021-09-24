@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const product = require("../model/productModel");
+ 
 
-router.get("/getallproducts", (req, res) => {
-  product.find({}, (err, docs) => {
+router.get("/getallusers", (req, res) => {
+  user.find({}, (err, docs) => {
     if (!err) {
       return res.json({ data: docs });
     }
