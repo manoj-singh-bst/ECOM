@@ -17,8 +17,10 @@ mongoose
 
 var productsRoute = require("./routes/productsRoutes");
 var orderRoute = require("./routes/orderRoute");
+const userRoute=require("./routes/userRoute")
 
 app.use("/api/products/", productsRoute);
+app.use("/api/user/",userRoute );
 app.get("/", (req, res) => {
   res.send("this is from the backend");
 });

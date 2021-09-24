@@ -1,4 +1,5 @@
-export const getAllProductsReducer = (state = {}, action) => {
+export const getAllProductsReducer = (state = { products: [] }, action) => {
+  console.log(action);
   switch (action.type) {
     case "GET_PRODUCT_REQUEST":
       return {
@@ -16,7 +17,7 @@ export const getAllProductsReducer = (state = {}, action) => {
         loading: false,
       };
     default:
-      state;
+      return state;
   }
 };
 
