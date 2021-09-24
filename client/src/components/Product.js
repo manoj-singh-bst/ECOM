@@ -4,8 +4,9 @@ import Rating from "react-rating";
 import img2 from "./star-yellow.png";
 
 export default function Product({ product }) {
+  console.log(product);
   return (
-    <div className="col-md-3 m-5 card p-2">
+    <div className="col-md-3 m-5 card p-2" key={product._id}>
       <div>
         <Link
           style={{ textDecoration: "none", color: "black" }}
