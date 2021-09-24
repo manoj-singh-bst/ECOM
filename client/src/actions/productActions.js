@@ -4,9 +4,10 @@ export const getAllProducts = () => (dispatch) => {
   axios
     .get("/api/products/getallproducts")
     .then((res) => {
-      const { product } = res.data;
-      console(product);
-      dispatch({ type: "GET_PRODUCT_SUCCESS", payload: product });
+      // const { product } = res.data;
+      console.log(res.data);
+      // setproducts(res.data);
+      dispatch({ type: "GET_PRODUCT_SUCCESS", payload: res.data });
     })
     .catch((err) => {
       console.log(err);
