@@ -1,6 +1,7 @@
-const express = require("express");
-const router = express.Router();
-const product = require("../model/productModel");
+// const express = require("express");
+// // const router = express.Router();
+// const product = require("../model/productModel");
+
 
 router.get("/getallproducts", (req, res) => {
   product.find({}, (err, docs) => {
@@ -13,3 +14,4 @@ router.get("/getallproducts", (req, res) => {
   });
 });
 module.exports = router;
+
