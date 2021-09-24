@@ -16,8 +16,10 @@ mongoose
   });
 
 var productsRoute = require("./routes/productsRoutes");
+const userRoute=require("./routes/userRoute")
 
 app.use("/api/products/", productsRoute);
+app.use("/api/user/",userRoute );
 app.get("/", (req, res) => {
   res.send("this is from the backend");
 });
