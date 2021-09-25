@@ -12,7 +12,7 @@ export default function Homescreen() {
   const { loading, products, error } = getallproductsstate;
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAllProducts);
+    dispatch(getAllProducts());
   }, []);
 
   return (
