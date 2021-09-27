@@ -1,15 +1,24 @@
 const express = require("express");
 const router = express.Router();
-const product = require("../model/productModel");
+const Product = require("../model/productModel");
 
 router.get("/getallproducts", (req, res) => {
-  product.find({}, (err, docs) => {
+  Product.find({}, (err, docs) => {
     if (!err) {
       return res.send(docs);
     }
     if (err) {
       return res.status(200).json({ message: "something went wrong" });
     }
+  });
+  router.post("/getproductbyid", (res, req) => {
+    Product.find({ _id: req.body.productid }, (err, docs) => {
+      if (!err) {
+        res.send(docs[0]);
+      } else {
+        return res.send(400).json({ message: "something went wrong" });
+      }
+    });
   });
 });
 module.exports = router;

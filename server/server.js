@@ -16,16 +16,16 @@ mongoose
   });
 
 var productsRoute = require("./routes/productsRoutes");
+app.use(bodyparse.json({}));
 var orderRoute = require("./routes/orderRoute");
-const userRoute=require("./routes/userRoute")
+const userRoute = require("./routes/userRoute");
 
 app.use("/api/products/", productsRoute);
-app.use("/api/user/",userRoute );
+app.use("/api/user/", userRoute);
 app.get("/", (req, res) => {
   res.send("this is from the backend");
 });
-app.use(bodyparse.json({ extended: true }));
-app.use(bodyparse.urlencoded({ extended: true }));
+// app.use(bodyparse.urlencoded({ extended: true }));
 app.use(cors());
 app.use("/api/orders/", orderRoute);
 
