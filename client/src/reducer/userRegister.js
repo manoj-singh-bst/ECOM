@@ -1,44 +1,51 @@
-const registerNewUserReducer=(state={},action)=>{
-    switch(action.type){
-        case  "USER_REGISTER_REQUEST":return{
+export const registerNewUserReducer = (state = {}, action) => {
+    switch (action.type) {
+        case "USER_REGISTER_REQUEST": return {
             ...state,
-            loading:true,
+            loading: true,
         }
 
-        case  "USER_REGISTER_SUCCESS":return{
+        case "USER_REGISTER_SUCCESS": return {
             ...state,
-            loading:false,
-            success:true
+            loading: false,
+            success: true
         }
 
-        case  "USER_REGISTER_FAILED":return{
+        case "USER_REGISTER_FAILED": return {
             ...state,
-            loading:true,
-            error:true
+            loading: true,
+            error: "invalid"
         }
     }
+    return state;
 
 }
 
 
-const loginReducer=(state={},action)=>{
-    switch(action.type){
-        case  "USER_LOGIN_REQUEST":return{
+export const loginReducer = (state = {}, action) => {
+    switch (action.type) {
+        case "USER_LOGIN_REQUEST": return {
             ...state,
-            loading:true,
+            loading: true,
         }
 
-        case  "USER_LOGIN_SUCCESS":return{
+        case "USER_LOGIN_SUCCESS": return {
             ...state,
-            loading:false,
-            success:true
+            loading: false,
+            success: true
         }
 
-        case  "USER_LOGIN_FAILED":return{
+        case "USER_LOGIN_FAILED": return {
             ...state,
-            loading:true,
-            error:true
+            loading: true,
+            error: "invalid"
+        }
+        case "USER_LOGOUT": return {
+            ...state,
         }
     }
+    return state;
 
 }
+
+

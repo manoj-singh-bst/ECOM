@@ -1,21 +1,32 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose"); // Erase if already required
 
-const userSchema = mongoose.Schema({
-   
-  name: {
-    type: String,
-    require: true,
-  },
-  email: {
-    type: String,
-    require: true,
-  },
-  password: {
-    type: String,
-    require: true,
-  },
-   
-});
- 
-const Users = mongoose.model("users", userSchema);
-module.exports = Users;
+
+// Declare the Schema of the Mongo model
+const userSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+      trim: true,
+      // min: 3,
+      // max: 20,
+    },
+    email: {
+      type: String,
+      required: true,
+      trim: true,
+      // min: 3,
+      // max: 20,
+    },
+    password: {
+      type: String,
+      required: true,
+      trim: true,
+      // unique: true,
+      // index: true,
+      // lowercase: true,
+    },
+     
+  });
+//Export the model
+module.exports = mongoose.model("users", userSchema);

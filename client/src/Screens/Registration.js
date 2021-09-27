@@ -1,23 +1,27 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { registerNewUser } from '../actions/userAction';
+import  {useDispatch} from 'react-redux'
 
 export default function Registration() {
-    const [name, setname] = useState()
-    const [email, setemail] = useState()
-    const [password, setpassword] = useState()
-    const [cpassword, setcpassword] = useState()
+    const [name, setname] = useState('')
+    const [email, setemail] = useState('')
+    const [password, setpassword] = useState('')
+    const [cpassword, setcpassword] = useState('')
+    const dispatch = useDispatch();
     // alert(name)
     function register(e){
         e.preventDefault() ;
+        const user={
+            name:name,
+            email:email,
+            password:password
+            
+        }
         if(password==cpassword){
-            // const user={
-            //     name:name,
-            //     email:email,
-            //     password:password,
-            //     cpassword:cpassword
-                
-            // }
-            alert();
+            
+
+            dispatch(registerNewUser(user));
 
         }
         else{
@@ -25,6 +29,9 @@ export default function Registration() {
         }
 
     }
+
+ 
+
     return (
         <>
            <center><div classNameName="row" style={{ width:"50%"}}>
