@@ -4,13 +4,26 @@ export const getAllProducts = () => (dispatch) => {
   axios
     .get("/api/products/getallproducts")
     .then((res) => {
-      // const { product } = res.data;
       console.log(res.data);
-      // setproducts(res.data);
       dispatch({ type: "GET_PRODUCT_SUCCESS", payload: res.data });
     })
     .catch((err) => {
       console.log(err);
       dispatch({ type: "GET_PRODUCT_FAILED", payload: err });
+    });
+};
+
+//******GETPRODUCTBY_ID code for single product ******
+export const getProductById = (productid) => (dispatch) => {
+  dispatch({ type: "GET_PRODUCTBYID_REQUEST" });
+  axios
+    .post("/api/products/getproductbyid", { productid })
+    .then((res) => {
+      console.log(res.data);
+      dispatch({ type: "GET_PRODUCTBYID_SUCCESS", payload: res.data });
+    })
+    .catch((err) => {
+      console.log(err);
+      dispatch({ type: "GET_PRODUCTBYID_FAILED", payload: err });
     });
 };

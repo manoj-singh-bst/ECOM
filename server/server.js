@@ -18,9 +18,9 @@ mongoose
   });
 
 var productsRoute = require("./routes/productsRoutes");
+app.use(bodyparse.json({}));
 var orderRoute = require("./routes/orderRoute");
-const userRoute = require("./routes/userRoute")
-
+const userRoute = require("./routes/userRoute");
 
 app.use(bodyparse.json({ extended: true }));
 app.use(bodyparse.urlencoded({ extended: true }));

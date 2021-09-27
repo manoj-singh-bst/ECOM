@@ -1,10 +1,13 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../actions/userAction";
 
 export default function Navbar() {
   const dispatch = useDispatch();
   const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  const addtocartreducer = useSelector((state) => state.addToCartReducer);
+  const { cartItems } = addtocartreducer;
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg ">
@@ -46,8 +49,9 @@ export default function Navbar() {
               )}
 
               <li className="nav-item">
-                <a className="nav-link" href=" ">
-                  <i class="fas fa-cart-arrow-down">cart</i>
+                <a className="nav-link" href="/cart">
+                  <i class="fas fa-shopping-cart"></i>
+                  {cartItems.length}
                 </a>
               </li>
             </div>

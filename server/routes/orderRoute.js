@@ -4,6 +4,7 @@ const router = require("express").Router();
 const stripe = require("stripe")(
   "sk_test_51IxwYkSIspqRdPysVcjg5uEZM9ym9eDsP2vQGXZ6onFRClUFzb0eWmrvVPT3hSbeBlRzEmrv6Prg5fiHcw8FSNAs00NQsp37eM"
 );
+const Order = require("../model/orderModel");
 
 router.post("/placeorder", async (req, res) => {
   const { token, cartItems, currentUser, subtotal } = req.body;
@@ -25,7 +26,28 @@ router.post("/placeorder", async (req, res) => {
     }
   );
   if (payment) {
-    res.send("Payment successful");
+    const order = new Order({
+      userid: currentUser._id,
+      name: currentUser.name,
+      email: currentUser.email,
+      orderItems: cartItems,
+      shippingAddress: {
+        address: token.card.address_line1,
+        city: token.card.address_city,
+        country: token.card.address_country,
+        postalCode: token.card.address_zip,
+      },
+      orderAmount: subtotal,
+      transactionId: payment.source.id,
+      isDelivered: false,
+    });
+    order.save((err) => {
+      if (err) {
+        return res.status(400).json({ message: "Something went Wronggg" });
+      } else {
+        res.send("Order Placed SuccessFully");
+      }
+    });
   } else {
     return res.status(400).json({ message: "Payment failed" });
   }
