@@ -3,13 +3,18 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductByIdReducer } from "../reducer/productReducer";
 import { getProductById } from "../actions/productActions";
+import { addToCart } from "../actions/cartActions";
 export default function ProductdesScreen({ match }) {
   const productid = match.params.id;
   const dispatch = useDispatch();
+  const [quantity, setquantity] = useState(1);
   const getproductbyidstate = useSelector(
     (state) => state.getProductByIdReducer
   );
   const { product, loading, error } = getproductbyidstate;
+  function addtocart() {
+    dispatch(addToCart(product, quantity));
+  }
   useEffect(() => {
     dispatch(getProductById(productid));
   }, []);
@@ -20,7 +25,7 @@ export default function ProductdesScreen({ match }) {
       ) : error ? (
         <h1>Something went wrong</h1>
       ) : (
-        <div className="row">
+        <div className="row mt-5">
           <div className="col-md-6">
             <div className="card p-4 m-2">
               <h1>{product.name}</h1>
@@ -35,13 +40,23 @@ export default function ProductdesScreen({ match }) {
               <hr />
               <h1 style={{ textAlign: "left " }}>select quantity</h1>
 
-              <select style={{ display: "flex" }}>
+              <select
+                value={quantity}
+                onchange={(e) => {
+                  setquantity(e.target.value);
+                }}
+                style={{ display: "flex" }}
+              >
                 {[...Array(product.countInstock).keys()].map((x, i) => {
                   return <option value={i + 1}>{i + 1}</option>;
                 })}
               </select>
               <hr />
-              <button style={{ display: "flex" }} className="btn btn-dark">
+              <button
+                style={{ display: "flex" }}
+                className="btn btn-dark"
+                onClick={addtocart}
+              >
                 ADD TO CART
               </button>
             </div>

@@ -11,7 +11,7 @@ router.get("/getallproducts", (req, res) => {
       return res.status(200).json({ message: "something went wrong" });
     }
   });
-  router.post("/getproductbyid", (res, req) => {
+  router.post("/getproductbyid", (req, res) => {
     Product.find({ _id: req.body.productid }, (err, docs) => {
       if (!err) {
         res.send(docs[0]);
