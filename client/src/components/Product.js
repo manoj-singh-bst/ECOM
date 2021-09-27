@@ -6,11 +6,11 @@ import img2 from "./star-yellow.png";
 export default function Product({ product }) {
   console.log(product);
   return (
-    <div className="col-md-3 m-5 card p-2" key={product._id}>
+    <div className key={product._id}>
       <div>
         <Link
           style={{ textDecoration: "none", color: "black" }}
-          to={`product/${product.id}`}
+          to={`product/${product._id}`}
         >
           <img src={product.image} className="img-fluid" />
           <h1>{product.name}</h1>

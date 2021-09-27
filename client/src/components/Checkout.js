@@ -1,7 +1,7 @@
 import React from "react";
 import StripeCheckout from "react-stripe-checkout";
 import { placeOrder } from "../actions/orderActions";
-import {  } from "../";
+import { useDispatch } from "react-redux";
 
 export default function Checkout(amount) {
   const dispatch = useDispatch();

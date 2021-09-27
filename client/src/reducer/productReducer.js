@@ -21,24 +21,26 @@ export const getAllProductsReducer = (state = { products: [] }, action) => {
   }
 };
 
-// const initState = {
-//   product: [],
-// };
-// export default (state = initState, action) => {
-//   switch (action.type) {
-//     case "GET_PRODUCT_REQUEST":
-//       state = {
-//         ...state,
-//         product: action.payload.product,
-//       };
-//       break;
-//   }
-//   switch (action.type) {
-//     case "GET_PRODUCT_SUCCESS":
-//       state = {
-//         ...state,
-//         product: action.payload.product,
-//       };
-//       break;
-//   }
-// };
+//*****GETPRODUCTBYID******
+export const getProductByIdReducer = (state = { product: [] }, action) => {
+  console.log(action);
+  switch (action.type) {
+    case "GET_PRODUCTBYID_REQUEST":
+      return {
+        loading: true,
+      };
+
+    case "GET_PRODUCTBYID_SUCCESS":
+      return {
+        product: action.payload,
+        loading: false,
+      };
+    case "GET_PRODUCTBYID_FAILED":
+      return {
+        error: action.payload,
+        loading: false,
+      };
+    default:
+      return state;
+  }
+};

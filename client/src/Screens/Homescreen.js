@@ -12,7 +12,7 @@ export default function Homescreen() {
   const { loading, products, error } = getallproductsstate;
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAllProducts);
+    dispatch(getAllProducts());
   }, []);
 
   return (
@@ -25,7 +25,7 @@ export default function Homescreen() {
         ) : (
           products.map((product) => {
             return (
-              <div className="col-md-3 m-2 p-2">
+              <div className="col-md-3 m-2 p-2 card">
                 <Product product={product} />
               </div>
             );
