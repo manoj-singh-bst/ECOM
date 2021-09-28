@@ -1,7 +1,6 @@
 import React from "react";
-import { useSelector, useDispatch } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from "../actions/cartActions";
-import { addToCartReducer } from "../reducer/cartReducer";
 
 export default function Cartscreen() {
   const cartreducerstate = useSelector((state) => state.addToCartReducer);

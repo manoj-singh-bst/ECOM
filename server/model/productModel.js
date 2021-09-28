@@ -38,11 +38,11 @@ const productSchema = mongoose.Schema({
     require: true,
   },
   countInStock: {
-    type: String,
+    type: Number,
     require: true,
   },
   rating: {
-    type: String,
+    type: Number,
     require: true,
   },
   reviews: [reviewsSchema],

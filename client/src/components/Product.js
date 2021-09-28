@@ -18,6 +18,12 @@ export default function Product({ product }) {
             initialRating={product.rating}
             fullSymbol={<img src={img2} className="icon" />}
           />
+          {/* <Rating
+            style={{ color: "orange" }}
+            initialRating={product.rating}
+            emptySymbol="fa fa-star-o fa-1x"
+            fullSymbol="fa fa-star fa-1x"
+          /> */}
           <h1>price:{product.price}</h1>
         </Link>
       </div>
