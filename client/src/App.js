@@ -8,6 +8,8 @@ import userslist from "./Screens/Userslist";
 import Registration from "./Screens/Registration";
 import Loginscreen from "./Screens/Loginscreen";
 import Cartscreen from "./Screens/Cartscreen";
+import Ordersscreen from "./Screens/Ordersscreen";
+import Orderinfo from "./Screens/Orderinfo";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
         <Route path="/registration" component={Registration} />
         <Route path="/admin" component={Adminscreen} />
         <Route path="/login" component={Loginscreen} />
+        <Route path="/orders" component={Ordersscreen} />
+        <Route path="/orderinfo/:orderid" component={Orderinfo} />
       </BrowserRouter>
     </div>
   );

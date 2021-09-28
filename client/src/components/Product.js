@@ -15,6 +15,11 @@ export default function Product({ product }) {
           <img src={product.image} className="img-fluid" />
           <h1>{product.name}</h1>
           <Rating
+            // style={{ color: "orange" }}
+            // initialRating={product.rating}
+            // emptySymbol="fa fa-star-o fa-1x"
+            // fullSymbol="fa fa-star fa-1x"
+            readonly={true}
             initialRating={product.rating}
             fullSymbol={<img src={img2} className="icon" />}
           />
