@@ -4,7 +4,7 @@ import { logoutUser } from "../actions/userAction";
 
 export default function Navbar() {
   const dispatch = useDispatch();
-  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   const addtocartreducer = useSelector((state) => state.addToCartReducer);
   const { cartItems } = addtocartreducer;
 
@@ -30,16 +30,41 @@ export default function Navbar() {
             <div className="navbar-nav ml-auto">
               {currentUser ? (
                 <div class="dropdown">
-                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  <button
+                    class="btn btn-secondary dropdown-toggle"
+                    type="button"
+                    id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
                     {currentUser.name}
                   </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="/profile">Profile</a></li>
-                    <li><a class="dropdown-item" href="/orders">Orders</a></li>
-                    <li><a class="dropdown-item" onClick={() => { dispatch(logoutUser()) }} >LogOut</a></li>
+                  <ul
+                    class="dropdown-menu"
+                    aria-labelledby="dropdownMenuButton1"
+                  >
+                    <li>
+                      <a class="dropdown-item" href="/profile">
+                        Profile
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="/orders">
+                        Orders
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        onClick={() => {
+                          dispatch(logoutUser());
+                        }}
+                      >
+                        LogOut
+                      </a>
+                    </li>
                   </ul>
                 </div>
-
               ) : (
                 <li className="nav-item">
                   <a className="nav-link" href=" /login">
@@ -55,13 +80,12 @@ export default function Navbar() {
                 </a>
               </li>
             </div>
-
-
-
           </div>
         </div>
       </nav>
     </div>
   );
 }
-{/* <li style={{color:"white"}}>{currentUser.name}</li> */ }
+{
+  /* <li style={{color:"white"}}>{currentUser.name}</li> */
+}
