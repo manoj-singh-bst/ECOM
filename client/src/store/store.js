@@ -10,6 +10,10 @@ import { createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import { loginReducer, registerNewUserReducer } from "../reducer/userRegister";
+import {
+  getOrderByIdReducer,
+  getOrdersByUserIdReducer,
+} from "../reducer/orderReducer";
 
 const finalReducer = combineReducers({
   getAllProductsReducer: getAllProductsReducer,
@@ -17,6 +21,8 @@ const finalReducer = combineReducers({
   loginReducer: loginReducer,
   getProductByIdReducer: getProductByIdReducer,
   addToCartReducer: addToCartReducer,
+  getOrdersByUserIdReducer: getOrdersByUserIdReducer,
+  getOrderByIdReducer: getOrderByIdReducer,
 });
 const currentUser = localStorage.getItem("currentUser")
   ? JSON.parse(localStorage.getItem("currentUser"))

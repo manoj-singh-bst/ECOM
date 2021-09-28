@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-
 import { useDispatch, useSelector } from "react-redux";
-import { getProductByIdReducer } from "../reducer/productReducer";
 import { getProductById } from "../actions/productActions";
 import { addToCart } from "../actions/cartActions";
 import Review from "../components/Review";
@@ -43,12 +41,12 @@ export default function ProductdesScreen({ match }) {
 
               <select
                 value={quantity}
-                onchange={(e) => {
+                onChange={(e) => {
                   setquantity(e.target.value);
                 }}
                 style={{ display: "flex" }}
               >
-                {[...Array(product.countInstock).keys()].map((x, i) => {
+                {[...Array(product.countInStock).keys()].map((x, i) => {
                   return <option value={i + 1}>{i + 1}</option>;
                 })}
               </select>
