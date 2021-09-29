@@ -28,6 +28,7 @@ export const getProductById = (productid) => (dispatch) => {
     });
 };
 
+//*******FILTER product ******
 export const filterProducts = (searchKey, sortKey, category) => (dispatch) => {
   var filteredproducts;
   dispatch({ type: "GET_PRODUCTS_REQUEST" });

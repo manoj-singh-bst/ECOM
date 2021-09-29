@@ -37,7 +37,7 @@ export default function Registration() {
                 <input
                   type="name"
                   className="form-control"
-                  placeholder="Enter  name"
+                  placeholder="Enter name"
                   required
                   id="name"
                   value={name}
@@ -49,7 +49,7 @@ export default function Registration() {
                 <input
                   type="email"
                   className="form-control"
-                  placeholder="Enter   email"
+                  placeholder="Enter email"
                   value={email}
                   required
                   onChange={(e) => {
@@ -82,7 +82,6 @@ export default function Registration() {
                 <button type="submit" class="btn btn-dark mt-3 me-auto">
                   Register
                 </button>
-                
               </form>
             </div>
           </div>
