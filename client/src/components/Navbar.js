@@ -13,7 +13,7 @@ export default function Navbar() {
     <div>
       <nav className="navbar navbar-expand-lg ">
         <div className="container-fluid">
-          <a className="navbar-brand m-0" href=" ">
+          <a className="navbar-brand" href="/">
             Super Mart
           </a>
           <button
