@@ -30,7 +30,7 @@ const cartItems = localStorage.getItem("cartItems")
   : [];
 
 const initialState = {
-  addToCartReducereducer: { cartItems: cartItems },
+  addToCartReducer: { cartItems: cartItems },
   loginReducer: { currentUser: currentUser },
 };
 
