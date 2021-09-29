@@ -40,6 +40,9 @@ export default function Cartscreen() {
                       </select>
                     </td>
                     <td>{item.quantity * item.price}</td>
+                    <td>
+                      <i class="fas fa-trash-alt"></i>
+                    </td>
                   </tr>
                 );
               })}
