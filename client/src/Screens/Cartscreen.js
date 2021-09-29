@@ -23,24 +23,25 @@ export default function Cartscreen() {
             </thead>
             <tbody>
               {cartItems.map((item) => {
-                return;
-                <tr>
-                  <td>{item.name}</td>
-                  <td>{item.price}</td>
-                  <td>
-                    <select
-                      value={item.quantity}
-                      onChange={(e) => {
-                        dispatch(addToCart(item, e.target.value));
-                      }}
-                    >
-                      {[...Array(item.countInStock).keys()].map((x, i) => {
-                        return <option value={i + 1}>{i + 1}</option>;
-                      })}
-                    </select>
-                  </td>
-                  <td>{item.quantity * item.price}</td>
-                </tr>;
+                return (
+                  <tr>
+                    <td>{item.name}</td>
+                    <td>{item.price}</td>
+                    <td>
+                      <select
+                        value={item.quantity}
+                        onChange={(e) => {
+                          dispatch(addToCart(item, e.target.value));
+                        }}
+                      >
+                        {[...Array(item.countInStock).keys()].map((x, i) => {
+                          return <option value={i + 1}>{i + 1}</option>;
+                        })}
+                      </select>
+                    </td>
+                    <td>{item.quantity * item.price}</td>
+                  </tr>
+                );
               })}
             </tbody>
           </table>

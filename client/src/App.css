@@ -29,7 +29,7 @@
 }
 
 .navbar {
-  background-color: rgb(14, 36, 230);
+  background-color: rgb(24, 201, 224);
 }
 .navbar-brand {
   color: white;
@@ -57,17 +57,17 @@ h1 {
     transform: rotate(360deg);
   }
 }
-.admin{
+.admin {
   background-color: aquamarine;
   padding: 15px;
 }
 
-.admin li{
+.admin li {
   list-style-type: none;
   display: inline-block;
   margin-left: 20px;
 }
- input{
+input {
   margin-top: 10px !important;
-  border: 1px  solid black !important ;
+  border: 1px solid black !important ;
 }
