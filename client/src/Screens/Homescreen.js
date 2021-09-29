@@ -4,6 +4,7 @@ import Product from "../components/Product";
 import { useDispatch } from "react-redux";
 import { getAllProducts } from "../actions/productActions";
 import { useSelector } from "react-redux";
+import Filter from "../components/Filter";
 
 export default function Homescreen() {
   const getallproductsstate = useSelector(
@@ -17,6 +18,8 @@ export default function Homescreen() {
 
   return (
     <div>
+      <Filter />
+
       <div className="row justify-content-center">
         {loading ? (
           <h1>Loading... </h1>

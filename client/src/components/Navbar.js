@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../actions/userAction";
+import Filter from "./Filter";
 
 export default function Navbar() {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ export default function Navbar() {
       <nav className="navbar navbar-expand-lg ">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
-            Navbar
+            Super Mart
           </a>
           <button
             className="navbar-toggler"

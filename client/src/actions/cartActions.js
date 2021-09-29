@@ -12,9 +12,3 @@ export const addToCart = (product, quantity) => (dispatch, getState) => {
     JSON.stringify(getState().addToCartReducer.cartItems)
   );
 };
-// export const deleteCart{
-// localStorage.setItem(
-//   "cartItems",
-//   JSON.stringify(getState().addToCartReducer.cartItems)
-// );
-// }

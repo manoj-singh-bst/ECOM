@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductById } from "../actions/productActions";
 import { addToCart } from "../actions/cartActions";
+import Review from "../components/Review";
 export default function ProductdesScreen({ match }) {
   const productid = match.params.id;
   const dispatch = useDispatch();
@@ -57,6 +58,10 @@ export default function ProductdesScreen({ match }) {
               >
                 ADD TO CART
               </button>
+            </div>
+            <hr />
+            <div className="text-left" style={{ display: "flex" }}>
+              <Review />
             </div>
           </div>
         </div>
