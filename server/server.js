@@ -21,7 +21,7 @@ var productsRoute = require("./routes/productsRoutes");
 app.use(bodyparse.json({}));
 var orderRoute = require("./routes/orderRoute");
 const userRoute = require("./routes/userRoute");
-
+const userScreenRoute=require("./routes/userScreenRoute");
 app.use(bodyparse.json({ extended: true }));
 app.use(bodyparse.urlencoded({ extended: true }));
 app.use(cors());
@@ -31,6 +31,7 @@ app.get("/", (req, res) => {
 app.use("/api/products/", productsRoute);
 app.use("/api/user", userRoute);
 app.use("/api/orders/", orderRoute);
+app.use("/admin/api/user", userScreenRoute);
 
 app.listen(port, () => {
   console.log(`server is running at http://localhost:${port}`);

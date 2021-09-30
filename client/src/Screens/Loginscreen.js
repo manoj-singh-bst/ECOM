@@ -26,7 +26,7 @@ export default function Loginscreen() {
 
     return (
         <>
-            <center> <div classNameName="row" style={{ width: "50%" }} >
+            <center> <div classNameName="row" style={{ width: "50%" ,marginTop:'100px', border:' 1px solid, grey' }} >
                 <div classNameName="col-md-5 login">
                     <div>
                         <h1>Login</h1>
@@ -41,6 +41,7 @@ export default function Loginscreen() {
                             <input
                                 type="password"
                                 className="form-control"
+                                placeholder="Enter password"
                                 value={password}
                                 onChange={(e) => { setpassword(e.target.value) }}
                                 id="password" />

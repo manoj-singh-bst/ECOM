@@ -22,6 +22,8 @@ export default function Registration() {
             
 
             dispatch(registerNewUser(user));
+            alert("registration success and use can login....")
+            window.location.href="/login";
 
         }
         else{

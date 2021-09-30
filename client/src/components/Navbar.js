@@ -13,7 +13,7 @@ export default function Navbar() {
       <nav className="navbar navbar-expand-lg ">
         <div className="container-fluid">
           <a className="navbar-brand" href=" ">
-            Navbar
+            SUPER MART <span><i class="fa fa-shopping-cart"></i></span>
           </a>
           <button
             className="navbar-toggler"
