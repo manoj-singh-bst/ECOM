@@ -1,42 +1,68 @@
+import React, { useEffect, useState } from 'react';
+import { getProductById } from '../actions/productActions';
+import { useSelector ,useDispatch } from 'react-redux';
+import { updateProduct } from '../actions/productActions';
+//import { useEffect,useState } from 'react';
 
-import React from 'react';
-import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux'
-import  addProductReducer  from '../reducer/productReducer';
-import {addProduct} from '../actions/productActions'
-export default function Addnewproduct() {
+export default function Editproduct({match}) {
+   const productState = useSelector(state => state.getProductByIdReducer)
+   const{product ,loading ,error}=productState; 
+    const dispatch = useDispatch();
+    const productid=match.params.productid;
     const [name, setname] = useState('')
     const [price, setprice] = useState('')
     const [countinstock, setcountinstock] = useState()
     const [imageurl, setimageurl] = useState('')
     const [category, setcategory] = useState('')
     const [description, setdescription] = useState('')
+    // alert(price)
 
-    const dispatch = useDispatch();
-    // alert(name)
-    function addproduct(e) {
-        e.preventDefault();
-        const product = {
-            name: name,
-            price: price,
-            countInStock: countinstock,
-            image: imageurl,
-            description: description,
-            category,
+    function editproduct(e) {
+      e.preventDefault();
+      const updatedproduct = {
+          name: name,
+          price: price,
+          countInStock: countinstock,
+          image: imageurl,
+          description: description,
+          category,
+
+      }
+      
+     dispatch(updateProduct(productid,updatedproduct));
+  }
+    useEffect(() => {
+       if(product){
+
+        if(product._id==productid){
+        setname(product.name);
+        setprice(product.price);
+        setcountinstock(product.countInStock);
+        setimageurl(product.image);
+        setdescription(product.description);
+        setcategory(product.category)
+        }
+        else{
+          dispatch(getProductById(productid))
 
         }
-        dispatch(addProduct(product));
-    }
 
-
-
-    return (
-        <>
-            <center><div classNameName="row" style={{ width: "50%" }}>
+      }
+      else{
+        dispatch(getProductById(productid))
+      }
+    }, [dispatch, product])
+  return (
+    <>
+    <h1>{productid}</h1>
+      {product && (<div>
+        <h1>{product.name}</h1>
+        <h1>{product.price}</h1>
+        <center><div classNameName="row" style={{ width: "50%" }}>
                 <div classNameName="col-md-5">
                     <div>
-                        <h1>Product List</h1>
-                        <form onSubmit={addproduct}>
+                        <h1>Edit Product</h1>
+                        <form onSubmit={editproduct}>
                             <input
                                 type="text"
                                 className="form-control"
@@ -88,14 +114,20 @@ export default function Addnewproduct() {
                                 value={description}
                                 onChange={(e) => { setdescription(e.target.value) }}
                             />
-                            <button type="submit" class="btn btn-dark mt-3 me-auto">Add product</button>
+                            <button type="submit" class="btn btn-dark mt-3 me-auto">Update product</button>
                         </form>
 
                     </div>
                 </div>
             </div>
             </center>
-        </>
-    );
-}
 
+
+
+
+
+      </div>)}
+
+    </>
+  );
+}
