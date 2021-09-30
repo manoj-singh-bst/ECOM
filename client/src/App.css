@@ -29,7 +29,7 @@
 }
 
 .navbar {
-  background-color: rgb(14, 36, 230);
+  background-color: rgb(24, 201, 224);
 }
 .navbar-brand {
   color: white;
@@ -57,17 +57,28 @@ h1 {
     transform: rotate(360deg);
   }
 }
-.admin{
+.admin {
   background-color: aquamarine;
   padding: 15px;
 }
 
-.admin li{
+.admin li {
   list-style-type: none;
   display: inline-block;
   margin-left: 20px;
 }
- input{
+input {
   margin-top: 10px !important;
-  border: 1px  solid black !important ;
+  border: 1px solid black !important ;
+}
+
+.man {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11),
+    0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11),
+    0 16px 16px rgba(0, 0, 0, 0.11), 0 32px 32px rgba(0, 0, 0, 0.11);
+}
+.man:hover {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.15),
+    0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.25),
+    0 16px 16px rgba(0, 0, 0, 0.2), 0 32px 32px rgba(0, 0, 0, 0.3);
 }

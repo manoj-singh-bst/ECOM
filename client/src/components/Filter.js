@@ -5,7 +5,7 @@ import { filterProducts } from "../actions/productActions";
 export default function Filter() {
   const dispatch = useDispatch();
   const [searchkey, setsearchkey] = useState("");
-  const [sort, setsort] = useState("popular");
+  const [sortkey, setsort] = useState("popular");
   const [category, setcategory] = useState("all");
   return (
     <div className="card">
@@ -25,7 +25,7 @@ export default function Filter() {
         <div className="col-md-2 mt-4 ml-2">
           <select
             className="form-control"
-            value={sort}
+            value={sortkey}
             onChange={(e) => {
               setsort(e.target.value);
             }}
@@ -55,7 +55,7 @@ export default function Filter() {
           <button
             className="btn "
             onClick={() => {
-              dispatch(filterProducts(searchkey, sort, category));
+              dispatch(filterProducts(searchkey, sortkey, category));
             }}
           >
             FILTER

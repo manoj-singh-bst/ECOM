@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { getAllProducts } from "../actions/productActions";
 import { useSelector } from "react-redux";
 import Filter from "../components/Filter";
-
+import Error from "../components/Error";
 export default function Homescreen() {
   const getallproductsstate = useSelector(
     (state) => state.getAllProductsReducer
@@ -20,11 +20,11 @@ export default function Homescreen() {
     <div>
       <Filter />
 
-      <div className="row justify-content-center">
+      <div className="row justify-content-center mt-5">
         {loading ? (
           <h1>Loading... </h1>
         ) : error ? (
-          <h1>Something went wrong</h1>
+          <Error error="something went wrong..." />
         ) : (
           products.map((product) => {
             return (
