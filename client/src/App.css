@@ -29,11 +29,7 @@
 }
 
 .navbar {
-<<<<<<< HEAD
-  background-color: rgb(24, 201, 224);
-=======
   background-color: rgb(24, 201, 224) !important;
->>>>>>> 58f27e325e01b6cc2903f2db93d4507718b639d0
 }
 .navbar-brand {
   color: white !important;

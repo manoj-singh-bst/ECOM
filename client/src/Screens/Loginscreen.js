@@ -3,7 +3,7 @@ import { useState } from "react";
 import { loginUser } from "../actions/userAction";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import loginf from "../Images/login.jpg";
+// import loginf from "../Images/login.jpg";
 
 export default function Loginscreen() {
   const [email, setemail] = useState();
