@@ -30,7 +30,7 @@ export default function Homescreen() {
         ) : (
           products.map((product) => {
             return (
-              <div className="col-md-3 m-2 p-2 card">
+              <div className="col-md-3 m-2 p-2 card ">
                 <Product product={product} />
               </div>
             );
