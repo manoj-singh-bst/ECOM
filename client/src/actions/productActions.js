@@ -27,7 +27,6 @@ export const getProductById = (productid) => (dispatch) => {
       dispatch({ type: "GET_PRODUCTBYID_FAILED", payload: err });
     });
 };
-
 //*********** DELETE PRODUCT BU ID**************** */
 
 export const deleteProduct = (productid) => dispatch => {
@@ -81,3 +80,39 @@ export const updateProduct = (productid, updatedproduct) => dispatch => {
     .catch(err => dispatch({ type: "UPDATE_PRODUCT_FAILED", payload:err})
     );
 }
+//*******FILTER product ******
+export const filterProducts = (searchKey, sortKey, category) => (dispatch) => {
+  var filteredproducts;
+  dispatch({ type: "GET_PRODUCTS_REQUEST" });
+  axios
+    .get("/api/products/getallproducts")
+    .then((res) => {
+      filteredproducts = res.data;
+      if (searchKey) {
+        filterProducts = res.data.filter((product) => {
+          return product.name.toLowerCase().includes(searchKey);
+        });
+      }
+
+      if (sortKey !== "popular") {
+        if (sortKey == "htl") {
+          filteredproducts = res.data.sort((a, b) => {
+            return -a.price + b.price;
+          });
+        } else {
+          filteredproducts = res.data.sort((a, b) => {
+            return a.price - b.price;
+          });
+        }
+      }
+      if (category !== "all") {
+        filteredproducts = res.data.filter((product) => {
+          return product.category.toLowerCase().includes(category);
+        });
+      }
+      dispatch({ type: "GET_PRODUCT_SUCCESS ", payload: filteredproducts });
+    })
+    .catch((err) => {
+      dispatch({ type: "GET_PRODUCT_FAILED" });
+    });
+};

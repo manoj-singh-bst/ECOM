@@ -2,8 +2,9 @@ import {
   getAllProductsReducer,
   getProductByIdReducer,
 } from "../reducer/productReducer";
-import { addToCartReducer } from "../reducer/cartReducer";
+import { CartReducer } from "../reducer/cartReducer";
 import { combineReducers } from "redux";
+import logger from "redux-logger";
 import { createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
@@ -13,6 +14,10 @@ import { deleteUserReducer } from "../reducer/userRegister";
 import { deleteProductReducer } from "../reducer/productReducer";
 import { addProductReducer } from "../reducer/productReducer";
 import { UpdateProductReducer } from "../reducer/productReducer";
+import {
+  getOrderByIdReducer,
+  getOrdersByUserIdReducer,
+} from "../reducer/orderReducer";
 
 const finalReducer = combineReducers({
   getAllProductsReducer: getAllProductsReducer,
@@ -25,9 +30,13 @@ const finalReducer = combineReducers({
   deleteProductReducer: deleteProductReducer,
   addProductReducer :addProductReducer ,
   UpdateProductReducer:UpdateProductReducer,
-
+CartReducer: CartReducer,
+  getOrdersByUserIdReducer: getOrdersByUserIdReducer,
+  getOrderByIdReducer: getOrderByIdReducer,
 });
-const currentUser = localStorage.getItem('currentUser') ? JSON.parse(localStorage.getItem('currentUser')) : null;
+const currentUser = localStorage.getItem("currentUser")
+  ? JSON.parse(localStorage.getItem("currentUser"))
+  : null;
 
 const cartItems = localStorage.getItem("cartItems")
   ? JSON.parse(localStorage.getItem("cartItems"))
@@ -37,11 +46,15 @@ const cartItems = localStorage.getItem("cartItems")
     loginReducer: { currentUser: currentUser }
   }
 
+const initialState = {
+  CartReducer: { cartItems: cartItems },
+  loginReducer: { currentUser: currentUser },
+};
 const composeEnhancers = composeWithDevTools({});
 
 const store = createStore(
   finalReducer,
   initialState,
-  composeEnhancers(applyMiddleware(thunk))
+  composeEnhancers(applyMiddleware(thunk, logger))
 );
 export default store;

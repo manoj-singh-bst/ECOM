@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const placeOrder = (token, subtotal) => (dispatch) => {
+export const placeOrder = (token, subtotal) => (dispatch, getState) => {
   const currentUser = getState().loginReducer.currentUser;
   const demoItems = getState().cartReducer.cartItems;
   const cartItems = new Array();
@@ -29,5 +29,32 @@ export const placeOrder = (token, subtotal) => (dispatch) => {
     })
     .catch((err) => {
       dispatch({ type: "PLACE_ORDER_FAILED" });
+    });
+};
+
+export const getOrdersByUserId = () => (dispatch, getState) => {
+  const userid = getState().loginReducer.currentUser._id;
+  dispatch({ type: "GET_ORDERSBYUSERID_REQUEST" });
+  axios
+    .post("/api/orders/getordersbyuserid", { userid: userid })
+    .then((res) => {
+      dispatch({ type: "GET_ORDERSBYUSERID_SUCCESS", payload: res.data });
+      console.log(res.data);
+    })
+    .catch((err) => {
+      dispatch({ type: "GET_ORDERSBYUSERID_FAILED", payload: err });
+    });
+};
+
+export const getOrderById = (orderid) => (dispatch, getState) => {
+  dispatch({ type: "GET_ORDERSBYID_REQUEST" });
+  axios
+    .post("/api/orders/getordersbyid", { orderid: orderid })
+    .then((res) => {
+      dispatch({ type: "GET_ORDERSBYID_SUCCESS", payload: res.data });
+      console.log(res.data);
+    })
+    .catch((err) => {
+      dispatch({ type: "GET_ORDERSBYID_FAILED", payload: err });
     });
 };

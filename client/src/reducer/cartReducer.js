@@ -1,4 +1,4 @@
-export const addToCartReducer = (state = { cartItems: [] }, action) => {
+export const CartReducer = (state = { cartItems: [] }, action) => {
   console.log(action);
   switch (action.type) {
     case "ADD_TO_CART":
@@ -19,6 +19,13 @@ export const addToCartReducer = (state = { cartItems: [] }, action) => {
         };
       }
 
+    case "DELETE_FROM_CART":
+      return {
+        ...state,
+        cartItems: state.cartItems.filter((item) => {
+          return item._id !== action.payload._id;
+        }),
+      };
     default:
       return state;
   }

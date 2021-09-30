@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-
 import { useDispatch, useSelector } from "react-redux";
-import { getProductByIdReducer } from "../reducer/productReducer";
 import { getProductById } from "../actions/productActions";
 import { addToCart } from "../actions/cartActions";
+import Review from "../components/Review";
+import Loader from "../components/Loader";
+import Error from "../components/Error";
 export default function ProductdesScreen({ match }) {
   const productid = match.params.id;
   const dispatch = useDispatch();
@@ -21,9 +22,9 @@ export default function ProductdesScreen({ match }) {
   return (
     <div>
       {loading ? (
-        <h1>Loading...</h1>
+        <Loader />
       ) : error ? (
-        <h1>Something went wrong</h1>
+        <Error error="something went wrong" />
       ) : (
         <div className="row mt-5">
           <div className="col-md-6">
@@ -42,12 +43,12 @@ export default function ProductdesScreen({ match }) {
 
               <select
                 value={quantity}
-                onchange={(e) => {
+                onChange={(e) => {
                   setquantity(e.target.value);
                 }}
                 style={{ display: "flex" }}
               >
-                {[...Array(product.countInstock).keys()].map((x, i) => {
+                {[...Array(product.countInStock).keys()].map((x, i) => {
                   return <option value={i + 1}>{i + 1}</option>;
                 })}
               </select>
@@ -59,6 +60,10 @@ export default function ProductdesScreen({ match }) {
               >
                 ADD TO CART
               </button>
+            </div>
+            <hr />
+            <div className="text-left" style={{ display: "flex" }}>
+              <Review />
             </div>
           </div>
         </div>
