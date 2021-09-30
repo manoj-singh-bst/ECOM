@@ -26,58 +26,47 @@ export default function Loginscreen() {
 
   return (
     <>
-      <div
-        className="card mt-5 w-75 m-auto"
-        style={{ backgroundColor: "red", borderRadius: "3rem" }}
-      >
-        <center>
-          <div
-            classNameName="row "
-            style={{
-              width: "100%",
-              padding: "100px",
-              border: " 1px solid, grey",
-              display: "flex",
-              justifyContent: "center",
-              justifyItems: "center",
-            }}
-          >
-            <div classNameName="col-md-5 login ">
-              <div>
-                <h1>Login</h1>
-                <form onSubmit={Login}>
-                  <input
-                    type="email"
-                    className="form-control"
-                    placeholder="Enter email"
-                    value={email}
-                    onChange={(e) => {
-                      setemail(e.target.value);
-                    }}
-                    id="email"
-                  />
-                  <input
-                    type="password"
-                    className="form-control"
-                    placeholder="Enter password"
-                    value={password}
-                    onChange={(e) => {
-                      setpassword(e.target.value);
-                    }}
-                    id="password"
-                  />
-                  <button type="submit" class="btn btn-dark mt-3 me-auto">
-                    Login
-                  </button>
-                </form>
-                <a href="/registration" id="signup">
-                  Don't have account yet?
-                </a>
-              </div>
+      <center>
+        <div
+          classNameName="row"
+          style={{
+            width: "50%",
+            marginTop: "100px",
+            border: " 1px solid, grey",
+          }}
+        >
+          <div classNameName="col-md-5 login">
+            <div>
+              <h1>Login</h1>
+              <form onSubmit={Login}>
+                <input
+                  type="email"
+                  className="form-control"
+                  placeholder="Enter email"
+                  value={email}
+                  onChange={(e) => {
+                    setemail(e.target.value);
+                  }}
+                  id="email"
+                />
+                <input
+                  type="password"
+                  className="form-control"
+                  placeholder="Enter password"
+                  value={password}
+                  onChange={(e) => {
+                    setpassword(e.target.value);
+                  }}
+                  id="password"
+                />
+                <button type="submit" class="btn btn-dark mt-3 me-auto">
+                  Login
+                </button>
+              </form>
             </div>
           </div>
-        </center>
-      </div>
+        </div>
+      </center>
     </>
   );
 }

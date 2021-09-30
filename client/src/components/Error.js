@@ -1,9 +1,11 @@
 import React from "react";
 
-export default function Error() {
+export default function Error({ error }) {
   return (
-    <div>
-      <h1>something went ......</h1>
+    <div className="">
+      <div className="alert alert-danger" role="alert">
+        {error}
+      </div>
     </div>
   );
 }

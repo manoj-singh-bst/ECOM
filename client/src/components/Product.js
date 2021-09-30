@@ -12,7 +12,10 @@ export default function Product({ product }) {
           style={{ textDecoration: "none", color: "black" }}
           to={`product/${product._id}`}
         >
-          <img src={product.image} className="img-fluid" />
+          <div className="text-center">
+            <img src={product.image} className="img-fluid" />
+          </div>
+
           <h1>{product.name}</h1>
           <Rating
             // style={{ color: "orange" }}
@@ -23,12 +26,6 @@ export default function Product({ product }) {
             initialRating={product.rating}
             fullSymbol={<img src={img2} className="icon" />}
           />
-          {/* <Rating
-            style={{ color: "orange" }}
-            initialRating={product.rating}
-            emptySymbol="fa fa-star-o fa-1x"
-            fullSymbol="fa fa-star fa-1x"
-          /> */}
           <h1>price:{product.price}</h1>
         </Link>
       </div>

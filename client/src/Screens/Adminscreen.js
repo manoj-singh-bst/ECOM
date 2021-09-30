@@ -5,6 +5,7 @@ import Productslist from './Productslist'
 import Userslist from './Userslist'
 import Addnewproduct from './Addnewproduct'
 import Orderlist from './Orderlist'
+import Editproduct from './Editproduct'
 
 export default function Adminscreen() {
     return (
@@ -16,6 +17,7 @@ export default function Adminscreen() {
                         <li><Link to="/admin/productslist">Product List</Link></li>
                         <li><Link to="/admin/addnewproduct">Add New Product</Link></li>
                         <li><Link to="/admin/orderlist">Order List</Link></li>
+                        {/* <li><Link to="/admin/editproduct/:product">Order List</Link></li> */}
 
                     </ul>
                     <Switch>
@@ -23,6 +25,7 @@ export default function Adminscreen() {
                         <Route path="/admin/productslist" component={Productslist} />
                         <Route path="/admin/addnewproduct" component={Addnewproduct} />
                         <Route path="/admin/orderlist" component={Orderlist} />
+                        <Route path="/admin/editproduct/:productid" component={Editproduct} />
                     </Switch>
 
                 </div>
