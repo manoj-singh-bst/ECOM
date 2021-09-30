@@ -30,7 +30,7 @@ export default function Registration() {
             alert("password and confirm password not match")
         }
     }
-  }
+  
 
   return (
     <>
