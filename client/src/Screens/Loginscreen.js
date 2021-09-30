@@ -23,36 +23,27 @@ export default function Loginscreen() {
     }
   }, []);
 
-  return (
-    <>
-      <center>
-        {" "}
-        <div classNameName="row" style={{ width: "50%" }}>
-          <div classNameName="col-md-5 login">
-            <div>
-              <h1>Login</h1>
-              <form onSubmit={Login}>
-                <input
-                  type="email"
-                  className="form-control"
-                  placeholder="Enter email"
-                  value={email}
-                  onChange={(e) => {
-                    setemail(e.target.value);
-                  }}
-                  id="email"
-                />
-                <input
-                  type="password"
-                  className="form-control"
-                  placeholder="Enter Password"
-                  value={password}
-                  onChange={(e) => {
-                    setpassword(e.target.value);
-                  }}
-                  id="password"
-                />
-
+    return (
+        <>
+            <center> <div classNameName="row" style={{ width: "50%" ,marginTop:'100px', border:' 1px solid, grey' }} >
+                <div classNameName="col-md-5 login">
+                    <div>
+                        <h1>Login</h1>
+                        <form onSubmit={Login}>
+                            <input
+                                type="email"
+                                className="form-control"
+                                placeholder="Enter email"
+                                value={email}
+                                onChange={(e) => { setemail(e.target.value) }}
+                                id="email" />
+                            <input
+                                type="password"
+                                className="form-control"
+                                placeholder="Enter password"
+                                value={password}
+                                onChange={(e) => { setpassword(e.target.value) }}
+                                id="password" />
                 <button type="submit" class="btn btn-dark mt-3 me-auto">
                   Login
                 </button>
