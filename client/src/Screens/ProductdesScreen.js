@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getProductById } from "../actions/productActions";
 import { addToCart } from "../actions/cartActions";
 import Review from "../components/Review";
+import Loader from "../components/Loader";
+import Error from "../components/Error";
 export default function ProductdesScreen({ match }) {
   const productid = match.params.id;
   const dispatch = useDispatch();
@@ -20,9 +22,9 @@ export default function ProductdesScreen({ match }) {
   return (
     <div>
       {loading ? (
-        <h1>Loading...</h1>
+        <Loader />
       ) : error ? (
-        <h1>Something went wrong</h1>
+        <Error error="something went wrong" />
       ) : (
         <div className="row mt-5">
           <div className="col-md-6">

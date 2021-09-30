@@ -6,8 +6,8 @@ import Filter from "./Filter";
 export default function Navbar() {
   const dispatch = useDispatch();
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-  const addtocartreducer = useSelector((state) => state.addToCartReducer);
-  const { cartItems } = addtocartreducer;
+  const cartreducer = useSelector((state) => state.CartReducer);
+  const { cartItems } = cartreducer;
 
   return (
     <div>
