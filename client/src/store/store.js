@@ -2,7 +2,7 @@ import {
   getAllProductsReducer,
   getProductByIdReducer,
 } from "../reducer/productReducer";
-import { addToCartReducer } from "../reducer/cartReducer";
+import { CartReducer } from "../reducer/cartReducer";
 import { combineReducers } from "redux";
 import logger from "redux-logger";
 import { createStore, applyMiddleware } from "redux";
@@ -19,7 +19,7 @@ const finalReducer = combineReducers({
   registerNewUserReducer: registerNewUserReducer,
   loginReducer: loginReducer,
   getProductByIdReducer: getProductByIdReducer,
-  addToCartReducer: addToCartReducer,
+  CartReducer: CartReducer,
   getOrdersByUserIdReducer: getOrdersByUserIdReducer,
   getOrderByIdReducer: getOrderByIdReducer,
 });
@@ -31,7 +31,7 @@ const cartItems = localStorage.getItem("cartItems")
   : [];
 
 const initialState = {
-  addToCartReducer: { cartItems: cartItems },
+  CartReducer: { cartItems: cartItems },
   loginReducer: { currentUser: currentUser },
 };
 const composeEnhancers = composeWithDevTools({});

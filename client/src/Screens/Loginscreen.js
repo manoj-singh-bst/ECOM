@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { loginUser } from "../actions/userAction";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
 export default function Loginscreen() {
