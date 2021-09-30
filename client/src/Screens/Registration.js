@@ -4,31 +4,25 @@ import { registerNewUser } from "../actions/userAction";
 import { useDispatch } from "react-redux";
 
 export default function Registration() {
-    const [name, setname] = useState('')
-    const [email, setemail] = useState('')
-    const [password, setpassword] = useState('')
-    const [cpassword, setcpassword] = useState('')
-    const dispatch = useDispatch();
-    // alert(name)
-    function register(e){
-        e.preventDefault() ;
-        const user={
-            name:name,
-            email:email,
-            password:password
-            
-        }
-        if(password==cpassword){
-            
-
-            dispatch(registerNewUser(user));
-            alert("registration success and use can login....")
-            window.location.href="/login";
-
-        }
-        else{
-            alert("password and confirm password not match")
-        }
+  const [name, setname] = useState("");
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+  const [cpassword, setcpassword] = useState("");
+  const dispatch = useDispatch();
+  // alert(name)
+  function register(e) {
+    e.preventDefault();
+    const user = {
+      name: name,
+      email: email,
+      password: password,
+    };
+    if (password == cpassword) {
+      dispatch(registerNewUser(user));
+      alert("registration success and use can login....");
+      window.location.href = "/login";
+    } else {
+      alert("password and confirm password not match");
     }
   }
 
