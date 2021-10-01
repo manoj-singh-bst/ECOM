@@ -3,8 +3,14 @@ import { useState } from "react";
 import { loginUser } from "../actions/userAction";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import { loginReducer } from "../reducer/userRegister";
+import Error from "../components/Error";
+import Loader from "../components/Loader";
 
 export default function Loginscreen() {
+ const loginreducer= useSelector(state => state.loginReducer)
+ const {error , loading}=loginreducer;
+
   const [email, setemail] = useState();
   const [password, setpassword] = useState();
   const dispatch = useDispatch();
@@ -29,6 +35,8 @@ export default function Loginscreen() {
                 <div classNameName="col-md-5 login">
                     <div>
                         <h1>Login</h1>
+                        {error && (<Error error="invalid credentials"/>)}
+                        {loading &&(<Loader/>)}
                         <form onSubmit={Login}>
                             <input
                                 type="email"
@@ -48,6 +56,7 @@ export default function Loginscreen() {
                   Login
                 </button>
               </form>
+              <a href="/Registration">Click here for new user!!</a>
             </div>
           </div>
         </div>
