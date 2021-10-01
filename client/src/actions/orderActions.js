@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const placeOrder = (token, subtotal) => (dispatch, getState) => {
   const currentUser = getState().loginReducer.currentUser;
-  const demoItems = getState().cartReducer.cartItems;
+  const demoItems = getState().CartReducer.cartItems;
   const cartItems = new Array();
 
   for (var i = 0; i < demoItems.length; i++) {

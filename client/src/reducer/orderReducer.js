@@ -14,7 +14,7 @@ export const placeOrderReducer = (state = {}, action) => {
     case "PLACE_ORDER_FAILED":
       return {
         ...state,
-        loading: true,
+        loading: false,
         error: true,
       };
     default:

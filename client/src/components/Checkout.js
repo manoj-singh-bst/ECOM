@@ -18,7 +18,7 @@ export default function Checkout(amount) {
     <div>
       {loading && <Loader />}
       {success && <Success success="Your Order Placed Successfully" />}
-      {error && <Error error="Something went wronggggg" />}
+      {error && <Error error="Order failed" />}
 
       <StripeCheckout
         token={tokenHandler}
@@ -27,7 +27,7 @@ export default function Checkout(amount) {
         currency="INR"
         stripeKey="pk_test_51IxwYkSIspqRdPysYFYPPT8fNe2sutuIiPQM6ZFF4x1p4nSI1gAWNzdqevYeQNoQFA7dxQflPdsM8zKIlDtaJMvQ00Rl4dAtiF"
       >
-        <button className="btn">Pay Now</button>
+        <button className="btn-dark">Pay Now</button>
       </StripeCheckout>
     </div>
   );

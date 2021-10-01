@@ -9,16 +9,16 @@ const Order = require("../model/orderModel");
 router.post("/placeorder", async (req, res) => {
   const { token, cartItems, currentUser, subtotal } = req.body;
 
-  const customer = await stripe.customer.create({
+  const customer1 = await stripe.customers.create({
     email: token.email,
-    source: token._id,
+    source: token.id,
   });
 
   const payment = await stripe.charges.create(
     {
       amount: subtotal * 100,
       currency: "INR",
-      customer: customer.id,
+      customer: customer1.id,
       receipt_email: token.email,
     },
     {

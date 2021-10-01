@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../actions/userAction";
-import Filter from "./Filter";
 
 export default function Navbar() {
   const dispatch = useDispatch();

@@ -21,7 +21,6 @@ export default function Homescreen() {
   return (
     <div>
       <Filter />
-
       <div className="row justify-content-center">
         {loading ? (
           <Loader />
