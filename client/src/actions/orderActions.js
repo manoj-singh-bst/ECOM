@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const placeOrder = (token, subtotal) => (dispatch, getState) => {
   const currentUser = getState().loginReducer.currentUser;
-  const demoItems = getState().cartReducer.cartItems;
+  const demoItems = getState().CartReducer.cartItems;
   const cartItems = new Array();
 
   for (var i = 0; i < demoItems.length; i++) {
@@ -26,6 +26,7 @@ export const placeOrder = (token, subtotal) => (dispatch, getState) => {
     .then((res) => {
       dispatch({ type: "PLACE_ORDER_SUCCESS" });
       console.log(res);
+      window.location.href="./Orderlist"
     })
     .catch((err) => {
       dispatch({ type: "PLACE_ORDER_FAILED" });
@@ -56,5 +57,19 @@ export const getOrderById = (orderid) => (dispatch, getState) => {
     })
     .catch((err) => {
       dispatch({ type: "GET_ORDERSBYID_FAILED", payload: err });
+    });
+};
+
+
+export const getAllOrders = () => (dispatch, getState) => {
+  dispatch({ type: "GET_ALLORDERS_REQUEST" });
+  axios
+    .get("/api/orders/getallorders")
+    .then((res) => {
+      dispatch({ type: "GET_ALLORDERS_SUCCESS", payload: res.data });
+      console.log(res.data);
+    })
+    .catch((err) => {
+      dispatch({ type: "GET_ALLORDERS_FAILED", payload: err });
     });
 };

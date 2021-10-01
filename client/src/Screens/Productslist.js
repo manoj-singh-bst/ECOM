@@ -5,6 +5,8 @@ import { deleteProduct, getAllProducts } from '../actions/productActions'
 import {Link} from 'react-router-dom'
 //import { getAllProductsReducer } from '../reducer/productReducer'
 //import { getAllProductsReducer } from '../reducer/productReducer'
+import Loader from '../components/Loader'
+import Error from '../components/Error'
 export default function Productslist() {
 
     const getallproductreducer = useSelector(state => state.getAllProductsReducer)
@@ -16,6 +18,8 @@ export default function Productslist() {
     return (
         <div>
             <h1>productslist</h1>
+            {loading && <Loader/>}
+            {error && <Error error="something went worng"/>}
             <table className="table table-bordered">
                 <thead>
                     <tr>

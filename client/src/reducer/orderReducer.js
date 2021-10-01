@@ -14,7 +14,7 @@ export const placeOrderReducer = (state = {}, action) => {
     case "PLACE_ORDER_FAILED":
       return {
         ...state,
-        loading: true,
+        loading: false,
         error: true,
       };
     default:
@@ -60,6 +60,33 @@ export const getOrderByIdReducer = (state = {}, action) => {
         order: action.payload,
       };
     case "GET_ORDERBYID_FAILED":
+      return {
+        ...state,
+        loading: true,
+        error: true,
+      };
+    default:
+      return { state };
+  }
+};
+
+
+
+
+export const getAllOrdersReducer = (state = {orders:[]}, action) => {
+  switch (action.type) {
+    case "GET_ALLORDERS_REQUEST":
+      return {
+        ...state,
+        loading: true,
+      };
+    case "GET_ALLORDERS_SUCCESS":
+      return {
+        ...state,
+        loading: false,
+        orders: action.payload,
+      };
+    case "GET_ALLORDERS_FAILED":
       return {
         ...state,
         loading: true,
