@@ -1,4 +1,5 @@
 import {
+  addProductReviewReducer,
   getAllProductsReducer,
   getProductByIdReducer,
 } from "../reducer/productReducer";
@@ -34,6 +35,7 @@ const finalReducer = combineReducers({
   getOrdersByUserIdReducer: getOrdersByUserIdReducer,
   getOrderByIdReducer: getOrderByIdReducer,
   placeOrderReducer: placeOrderReducer,
+  addProductReviewReducer: addProductReviewReducer,
 });
 const currentUser = localStorage.getItem("currentUser")
   ? JSON.parse(localStorage.getItem("currentUser"))
