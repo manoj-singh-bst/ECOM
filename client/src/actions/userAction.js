@@ -64,3 +64,19 @@ export const deleteUser = (userid) => dispatch => {
     .catch(err => dispatch({ type: "DELETE_USER_FAILED", payload:err})
     );
 }
+
+
+export const updateUser = (userid,updateduser ) => dispatch => {
+  console.log(updateduser);
+  dispatch({ type: "USER_UPDATE_REQUEST" });
+  axios
+    .post("api/user/update", {userid:userid,updateduser:updateduser})
+    .then(res => {
+      dispatch({ type: "USER_UPDATE_SUCCESS" });
+      alert("update success")
+      window.location.href='/'
+
+    })
+    .catch(err => dispatch({ type: "USER_UPDATE_FAILED", payload: err })
+    );
+}
