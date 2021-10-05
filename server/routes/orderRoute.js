@@ -9,16 +9,16 @@ const Order = require("../model/orderModel");
 router.post("/placeorder", async (req, res) => {
   const { token, cartItems, currentUser, subtotal } = req.body;
 
-  const customer = await stripe.customer.create({
+  const customer1 = await stripe.customers.create({
     email: token.email,
-    source: token._id,
+    source: token.id,
   });
 
   const payment = await stripe.charges.create(
     {
       amount: subtotal * 100,
       currency: "INR",
-      customer: customer.id,
+      customer: customer1.id,
       receipt_email: token.email,
     },
     {
@@ -73,6 +73,17 @@ router.post("/getorderbyid", (req, res) => {
       res.send(docs[0]);
     }
   });
+});
+router.get('/getallorders', (req, res) => {
+Order.find({},(err, docs)=>{
+
+  if (err) {
+    return res.status(400).json({ message: "Somethiing went wrong" });
+  } else {
+    res.send(docs);
+  }
+
+})
 });
 
 module.exports = router;

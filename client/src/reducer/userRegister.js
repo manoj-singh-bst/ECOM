@@ -37,7 +37,7 @@ export const loginReducer = (state = {}, action) => {
 
         case "USER_LOGIN_FAILED": return {
             ...state,
-            loading: true,
+            loading: false,
             error: "invalid"
         }
         case "USER_LOGOUT": return {
@@ -93,6 +93,30 @@ export const deleteUserReducer = (state = {}, action) => {
             ...state,
             loading: true,
             error: action.payload,
+        }
+    }
+    return state;
+
+}
+
+
+export const updateReducer = (state = {}, action) => {
+    switch (action.type) {
+        case "USER_UPDATE_REQUEST": return {
+            ...state,
+            loading: true,
+        }
+
+        case "USER_UPDATE_SUCCESS": return {
+            ...state,
+            loading: false,
+            success: true
+        }
+
+        case "USER_UPDATE_FAILED": return {
+            ...state,
+            loading: true,
+            error: "invalid"
         }
     }
     return state;

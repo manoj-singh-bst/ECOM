@@ -83,7 +83,6 @@ export const addProductReducer = (state = {}, action) => {
         ...state,
         loading: true,
       };
-
     case "ADD_PRODUCT_SUCCESS":
       return {
         ...state,
@@ -101,7 +100,6 @@ export const addProductReducer = (state = {}, action) => {
   return state;
 };
 
-//************ update product *************** */
 
 export const UpdateProductReducer = (state = {}, action) => {
   console.log(action);
@@ -129,7 +127,6 @@ export const UpdateProductReducer = (state = {}, action) => {
   return state;
 };
 
-//****add product review ********/
 export const addProductReviewReducer = (state = {}, action) => {
   switch (action.type) {
     case "ADD_PRODUCT_REVIEW_REQUEST":

@@ -15,6 +15,8 @@ import { deleteUserReducer } from "../reducer/userRegister";
 import { deleteProductReducer } from "../reducer/productReducer";
 import { addProductReducer } from "../reducer/productReducer";
 import { UpdateProductReducer } from "../reducer/productReducer";
+import { getAllOrdersReducer } from "../reducer/orderReducer";
+import { updateReducer } from "../reducer/userRegister";
 import {
   getOrderByIdReducer,
   getOrdersByUserIdReducer,
@@ -36,6 +38,9 @@ const finalReducer = combineReducers({
   getOrderByIdReducer: getOrderByIdReducer,
   placeOrderReducer: placeOrderReducer,
   addProductReviewReducer: addProductReviewReducer,
+  getAllOrdersReducer:getAllOrdersReducer,
+  addProductReviewReducer: addProductReviewReducer,
+  updateReducer:updateReducer,
 });
 const currentUser = localStorage.getItem("currentUser")
   ? JSON.parse(localStorage.getItem("currentUser"))

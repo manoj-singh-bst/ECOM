@@ -1,6 +1,6 @@
 import axios from "axios";
 export const getAllProducts = () => (dispatch) => {
-  dispatch({ type: "GET_PRODUCTS_REQUEST" });
+  dispatch({ type: "GET_PRODUCT_REQUEST" });
   axios
     .get("/api/products/getallproducts")
     .then((res) => {
@@ -27,7 +27,7 @@ export const getProductById = (productid) => (dispatch) => {
       dispatch({ type: "GET_PRODUCTBYID_FAILED", payload: err });
     });
 };
-//*********** DELETE PRODUCT BU ID**************** */
+//*********** DELETE PRODUCT By ID**************** */
 
 export const deleteProduct = (productid) => (dispatch) => {
   dispatch({ type: "DELETE_PRODUCT_REQUEST" });
@@ -76,13 +76,13 @@ export const updateProduct = (productid, updatedproduct) => (dispatch) => {
 //*******FILTER product ******
 export const filterProducts = (searchKey, sortKey, category) => (dispatch) => {
   var filteredproducts;
-  dispatch({ type: "GET_PRODUCTS_REQUEST" });
+  dispatch({ type: "GET_PRODUCT_REQUEST" });
   axios
     .get("/api/products/getallproducts")
     .then((res) => {
       filteredproducts = res.data;
       if (searchKey) {
-        filterProducts = res.data.filter((product) => {
+        filteredproducts = res.data.filter((product) => {
           return product.name.toLowerCase().includes(searchKey);
         });
       }
@@ -109,7 +109,6 @@ export const filterProducts = (searchKey, sortKey, category) => (dispatch) => {
       dispatch({ type: "GET_PRODUCT_FAILED" });
     });
 };
-
 // ******REVIEW PRODUCTS*******
 export const addProductReview =
   (review, productid) => async (dispatch, getState) => {
@@ -127,3 +126,4 @@ export const addProductReview =
         dispatch({ type: "ADD_PRODUCT_REVIEW_ FAILED" });
       });
   };
+

@@ -10,6 +10,7 @@ import Loginscreen from "./Screens/Loginscreen";
 import Cartscreen from "./Screens/Cartscreen";
 import Ordersscreen from "./Screens/Ordersscreen";
 import Orderinfo from "./Screens/Orderinfo";
+import Profilescreen from "./Screens/Profilescreen";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/login" component={Loginscreen} />
         <Route path="/orders" component={Ordersscreen} />
         <Route path="/orderinfo/:orderid" component={Orderinfo} />
+        <Route path="/profile" component={Profilescreen} />
       </BrowserRouter>
     </div>
   );

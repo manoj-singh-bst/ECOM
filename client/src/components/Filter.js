@@ -30,9 +30,9 @@ export default function Filter() {
               setsort(e.target.value);
             }}
           >
-            <option value="popular">popular</option>
-            <option value="lth">low to high</option>
-            <option value="htl">high to low</option>
+            <option value="popular">Popular</option>
+            <option value="lth">Low to High</option>
+            <option value="htl">High to Low</option>
           </select>
         </div>
 
@@ -45,7 +45,7 @@ export default function Filter() {
             }}
           >
             <option value="all">All</option>
-            <option value="fashion">fashion</option>
+            <option value="fashion">Fashion</option>
             <option value="mobiles">Mobiles</option>
             <option value="electronics">Electronics</option>
           </select>
@@ -53,7 +53,7 @@ export default function Filter() {
 
         <div className="col-md-2 mt-3 ml-2">
           <button
-            className="btn "
+            className="btn btn-dark"
             onClick={() => {
               dispatch(filterProducts(searchkey, sortkey, category));
             }}

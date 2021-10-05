@@ -45,6 +45,7 @@ router.post("/addproduct", (req, res) => {
     image: product.image,
     description: product.description,
     category: product.category,
+
   });
   products.save((err) => {
     if (err) {
@@ -97,6 +98,7 @@ router.post("/addreview", async (req, res) => {
       res.send("Review submmited successfully");
     }
   });
+ 
 });
 
 module.exports = router;

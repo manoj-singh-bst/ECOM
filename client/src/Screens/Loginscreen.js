@@ -4,9 +4,13 @@ import { loginUser } from "../actions/userAction";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import "../login.css";
-// import loginf from "../Images/login.jpg";
+import Error from "../components/Error";
+import Loader from "../components/Loader";
 
 export default function Loginscreen() {
+  const loginreducer = useSelector((state) => state.loginReducer);
+  const { error, loading } = loginreducer;
+
   const [email, setemail] = useState();
   const [password, setpassword] = useState();
   const dispatch = useDispatch();
