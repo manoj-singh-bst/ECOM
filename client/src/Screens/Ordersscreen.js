@@ -10,6 +10,7 @@ export default function Ordersscreen() {
   const dispatch = useDispatch();
   useEffect(() => {
     if (localStorage.getItem("currentUser")) {
+      dispatch(getOrdersByUserId());
     } else {
       window.location.href = "/login";
     }

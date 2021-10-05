@@ -1,4 +1,5 @@
 import {
+  addProductReviewReducer,
   getAllProductsReducer,
   getProductByIdReducer,
 } from "../reducer/productReducer";
@@ -25,10 +26,6 @@ const finalReducer = combineReducers({
   registerNewUserReducer: registerNewUserReducer,
   loginReducer: loginReducer,
   getProductByIdReducer: getProductByIdReducer,
-<<<<<<< HEAD
-
-=======
->>>>>>> ed991c57f740078e5281aa7d18b99086cbec8081
   getAllusersReducer: getAllusersReducer,
   deleteUserReducer: deleteUserReducer,
   deleteProductReducer: deleteProductReducer,
@@ -38,6 +35,7 @@ const finalReducer = combineReducers({
   getOrdersByUserIdReducer: getOrdersByUserIdReducer,
   getOrderByIdReducer: getOrderByIdReducer,
   placeOrderReducer: placeOrderReducer,
+  addProductReviewReducer: addProductReviewReducer,
 });
 const currentUser = localStorage.getItem("currentUser")
   ? JSON.parse(localStorage.getItem("currentUser"))
@@ -46,10 +44,6 @@ const currentUser = localStorage.getItem("currentUser")
 const cartItems = localStorage.getItem("cartItems")
   ? JSON.parse(localStorage.getItem("cartItems"))
   : [];
-<<<<<<< HEAD
-
-=======
->>>>>>> ed991c57f740078e5281aa7d18b99086cbec8081
 const initialState = {
   CartReducer: { cartItems: cartItems },
   loginReducer: { currentUser: currentUser },
