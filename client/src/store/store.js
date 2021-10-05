@@ -37,10 +37,10 @@ const finalReducer = combineReducers({
   getOrdersByUserIdReducer: getOrdersByUserIdReducer,
   getOrderByIdReducer: getOrderByIdReducer,
   placeOrderReducer: placeOrderReducer,
+  addProductReviewReducer: addProductReviewReducer,
   getAllOrdersReducer:getAllOrdersReducer,
   addProductReviewReducer: addProductReviewReducer,
   updateReducer:updateReducer,
-
 });
 const currentUser = localStorage.getItem("currentUser")
   ? JSON.parse(localStorage.getItem("currentUser"))

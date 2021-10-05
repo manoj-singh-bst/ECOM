@@ -83,7 +83,6 @@ export const addProductReducer = (state = {}, action) => {
         ...state,
         loading: true,
       };
-
     case "ADD_PRODUCT_SUCCESS":
       return {
         ...state,
@@ -101,7 +100,6 @@ export const addProductReducer = (state = {}, action) => {
   return state;
 };
 
-//************ add product *************** */
 
 export const UpdateProductReducer = (state = {}, action) => {
   console.log(action);
@@ -137,13 +135,13 @@ export const addProductReviewReducer = (state = {}, action) => {
       };
     case "ADD_PRODUCT_REVIEW_SUCCESS":
       return {
-        loading: false,
         success: true,
+        loading: false,
       };
     case "ADD_PRODUCT_REVIEW_FAILED":
       return {
-        loading: true,
         error: true,
+        loading: false,
       };
     default:
       return state;

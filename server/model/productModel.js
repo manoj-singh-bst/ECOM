@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+
+//SCHEMA FOR REVIEW
 const reviewsSchema = mongoose.Schema(
   {
     userid: {
@@ -20,6 +22,9 @@ const reviewsSchema = mongoose.Schema(
     timeStamps: true,
   }
 );
+
+//SCHEMA FOR PRODUCT
+
 const productSchema = mongoose.Schema(
   {
     name: {

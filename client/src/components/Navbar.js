@@ -17,6 +17,7 @@ export default function Navbar() {
           </a>
           <button
             className="navbar-toggler"
+            style={{ color: "red" }}
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNav"

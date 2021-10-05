@@ -21,7 +21,7 @@ export default function Homescreen() {
   return (
     <div>
       <Filter />
-      <div className="row justify-content-center">
+      <div className="row justify-content-center mt-5">
         {loading ? (
           <Loader />
         ) : error ? (

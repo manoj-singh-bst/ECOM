@@ -5,6 +5,7 @@ import { addToCart } from "../actions/cartActions";
 import Review from "../components/Review";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
+import "../productdes.css";
 export default function ProductdesScreen({ match }) {
   const productid = match.params.id;
   const dispatch = useDispatch();
@@ -63,7 +64,7 @@ export default function ProductdesScreen({ match }) {
             </div>
             <hr />
             <div className="text-left" style={{ display: "flex" }}>
-              <Review />
+              <Review product={product} />
             </div>
           </div>
         </div>

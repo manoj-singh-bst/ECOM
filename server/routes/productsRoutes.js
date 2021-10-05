@@ -1,3 +1,4 @@
+const { response } = require("express");
 const express = require("express");
 const router = express.Router();
 const Product = require("../model/productModel");
@@ -44,6 +45,7 @@ router.post("/addproduct", (req, res) => {
     image: product.image,
     description: product.description,
     category: product.category,
+
   });
   products.save((err) => {
     if (err) {
@@ -75,6 +77,28 @@ router.post("/updateproduct", (req, res) => {
       }
     }
   );
+});
+
+router.post("/addreview", async (req, res) => {
+  const { review, productid, currentUser } = req.body;
+
+  const product = await Product.findById({ _id: productid });
+
+  const reviewmodel = {
+    name: currentUser.name,
+    userid: currentUser._id,
+    rating: review.rating,
+    Comment: review.Comment,
+  };
+  product.reviews.push(reviewmodel);
+  product.save((err) => {
+    if (err) {
+      return res.status(400).json({ message: "something went wrong" });
+    } else {
+      res.send("Review submmited successfully");
+    }
+  });
+ 
 });
 
 module.exports = router;

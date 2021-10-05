@@ -87,43 +87,43 @@ export const filterProducts = (searchKey, sortKey, category) => (dispatch) => {
         });
       }
 
-      if (sortKey !== "popular") {
-        if (sortKey == "htl") {
-          filteredproducts = res.data.sort((a, b) => {
-            return -a.price + b.price;
-          });
-        } else {
-          filteredproducts = res.data.sort((a, b) => {
-            return a.price - b.price;
-          });
-        }
-      }
-      if (category !== "all") {
-        filteredproducts = res.data.filter((product) => {
-          return product.category.toLowerCase().includes(category);
-        });
-      }
+      // if (sortKey !== "popular") {
+      //   if (sortKey == "htl") {
+      //     filteredproducts = res.data.sort((a, b) => {
+      //       return -a.price + b.price;
+      //     });
+      //   } else {
+      //     filteredproducts = res.data.sort((a, b) => {
+      //       return a.price - b.price;
+      //     });
+      //   }
+      // }
+      // if (category !== "all") {
+      //   filteredproducts = res.data.filter((product) => {
+      //     return product.category.toLowerCase().includes(category);
+      //   });
+      // }
       dispatch({ type: "GET_PRODUCT_SUCCESS ", payload: filteredproducts });
     })
     .catch((err) => {
       dispatch({ type: "GET_PRODUCT_FAILED" });
     });
 };
+// ******REVIEW PRODUCTS*******
+export const addProductReview =
+  (review, productid) => async (dispatch, getState) => {
+    dispatch({ type: "ADD_PRODUCT_REVIEW_REQUEST" });
+    const currentUser = await getState().loginReducer.currentUser;
+    axios
+      .post("/api/products/addreview", { review, productid, currentUser })
+      .then((res) => {
+        console.log(res);
+        dispatch({ type: "ADD_PRODUCT_REVIEW_SUCCESS" });
 
-//*******ADD product REview ******
-export const addProductReview = (review, productid) => (dispatch, getState) => {
-  dispatch({ type: "ADD_PRODUCT_REVIEW_REQUEST" });
-  const currentUser = getState().loginReducer.currentUser;
+        alert("youreview submitted successfully");
+      })
+      .catch((err) => {
+        dispatch({ type: "ADD_PRODUCT_REVIEW_ FAILED" });
+      });
+  };
 
-  axios
-    .post("api/products/addreview", { review, productid, currentUser })
-    .then((res) => {
-      console.log(res);
-      dispatch({ type: "ADD_PRODUCT_REVIEW_SUCCESS" });
-      alert("Review added successfuly")
-      window.location.reload()
-    })
-    .catch((err) => {
-      dispatch({ type: "ADD_PRODUCT_REVIEW_FAILED" });
-    });
-};
