@@ -110,6 +110,7 @@ export const filterProducts = (searchKey, sortKey, category) => (dispatch) => {
     });
 };
 
+//*******ADD product REview ******
 export const addProductReview = (review, productid) => (dispatch, getState) => {
   dispatch({ type: "ADD_PRODUCT_REVIEW_REQUEST" });
   const currentUser = getState().loginReducer.currentUser;

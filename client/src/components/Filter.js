@@ -53,10 +53,10 @@ export default function Filter() {
 
         <div className="col-md-2 mt-3 ml-2">
           <button
-            className="btn"
+            className="btn btn-dark"
             onClick={() => {
               dispatch(filterProducts(searchkey, sort, category));
-            }}                           
+            }}
           >
             FILTER
           </button>
