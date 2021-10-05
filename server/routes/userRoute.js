@@ -98,4 +98,23 @@ router.post('/deleteuser', (req, res) => {
   })
   });
 
+  router.post('/update', (req, res) => {
+     const {userid, updateduser}=req.body
+     console.log(userid)
+    user.findByIdAndUpdate(userid ,{
+      name:updateduser.name,
+      email:updateduser.email,
+      password:updateduser.password,
+       
+    
+    },(err)=>{
+      if(err){
+         return res.status(400).json({message:"something went worng"+err})
+      }else{
+         res.send("userdetail updated successfully")
+        
+      }
+    })	
+    });
+
 module.exports = router;

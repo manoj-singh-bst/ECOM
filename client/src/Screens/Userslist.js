@@ -14,7 +14,7 @@ export default function Userslist() {
      }, [])
     return (
         <div>
-            <h1>Userlist</h1>
+            <h1 class="text-center m-5">Userlist</h1>
             {loading && <Loader/>}
             {error && <Error error="something went worng"/>}
             <table className="table table-bordered">

@@ -27,7 +27,7 @@ export const getProductById = (productid) => (dispatch) => {
       dispatch({ type: "GET_PRODUCTBYID_FAILED", payload: err });
     });
 };
-//*********** DELETE PRODUCT BU ID**************** */
+//*********** DELETE PRODUCT By ID**************** */
 
 export const deleteProduct = (productid) => (dispatch) => {
   dispatch({ type: "DELETE_PRODUCT_REQUEST" });
@@ -119,6 +119,8 @@ export const addProductReview = (review, productid) => (dispatch, getState) => {
     .then((res) => {
       console.log(res);
       dispatch({ type: "ADD_PRODUCT_REVIEW_SUCCESS" });
+      alert("Review added successfuly")
+      window.location.reload()
     })
     .catch((err) => {
       dispatch({ type: "ADD_PRODUCT_REVIEW_FAILED" });
