@@ -37,8 +37,8 @@ export default function Navbar() {
                     id="dropdownMenuButton1"
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
-                  >
-                    {currentUser.name}
+                  > 
+                    {currentUser.name}<span><div style={{height:'20px',width:'20px', border:'1px solid red', borderRadius:'50%'}}><img src={currentUser.img} alt="user"/></div></span>
                   </button>
                   <ul
                     class="dropdown-menu"

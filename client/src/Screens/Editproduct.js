@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { getProductById } from '../actions/productActions';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateProduct } from '../actions/productActions';
+
+
+
+import Card from 'react-bootstrap/Card'
 //import { useEffect,useState } from 'react';
 
 export default function Editproduct({ match }) {
@@ -54,6 +58,9 @@ export default function Editproduct({ match }) {
   }, [dispatch, product])
   return (
     <>
+         <center>   <Card className="cardContainer"  style={{marginTop:'20px' , padding:'15px' , width:'75%' }} >
+                <Card.Body>
+            <Card.Title>Edit Product</Card.Title>
 
       {product && (<div>
         <div>
@@ -65,7 +72,7 @@ export default function Editproduct({ match }) {
         <center><div classNameName="row" style={{ width: "50%" }}>
           <div classNameName="col-md-5">
             <div>
-              <h1>Edit Product</h1>
+              
               <form onSubmit={editproduct}>
                 <input
                   type="text"
@@ -131,7 +138,9 @@ export default function Editproduct({ match }) {
 
 
       </div>)}
-
+      </Card.Body>
+      </Card>
+  </center>
     </>
   );
 }

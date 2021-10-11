@@ -17,6 +17,7 @@ import { addProductReducer } from "../reducer/productReducer";
 import { UpdateProductReducer } from "../reducer/productReducer";
 import { getAllOrdersReducer } from "../reducer/orderReducer";
 import { updateReducer } from "../reducer/userRegister";
+import { googleloginReducer } from "../reducer/userRegister";
 import {
   getOrderByIdReducer,
   getOrdersByUserIdReducer,
@@ -41,6 +42,7 @@ const finalReducer = combineReducers({
   getAllOrdersReducer:getAllOrdersReducer,
   addProductReviewReducer: addProductReviewReducer,
   updateReducer:updateReducer,
+  googleloginReducer:googleloginReducer,
 });
 const currentUser = localStorage.getItem("currentUser")
   ? JSON.parse(localStorage.getItem("currentUser"))
@@ -52,6 +54,7 @@ const cartItems = localStorage.getItem("cartItems")
 const initialState = {
   CartReducer: { cartItems: cartItems },
   loginReducer: { currentUser: currentUser },
+  googleloginReducer:{currentUser:currentUser}
 };
 const composeEnhancers = composeWithDevTools({});
 

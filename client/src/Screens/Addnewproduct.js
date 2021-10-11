@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 import  addProductReducer  from '../reducer/productReducer';
 import {addProduct} from '../actions/productActions'
+import Card from 'react-bootstrap/esm/Card';
 export default function Addnewproduct() {
     const [name, setname] = useState('')
     const [price, setprice] = useState('')
@@ -32,10 +33,12 @@ export default function Addnewproduct() {
 
     return (
         <>
-            <center><div classNameName="row" style={{ width: "50%" }}>
+               <center> <Card className="cardContainer" style={{ width: '50%' ,padding:'20px',borderRadius:'5px' }}>
+                <Card.Body>
+            <div classNameName="row">
                 <div classNameName="col-md-5">
                     <div>
-                        <h1>Product List</h1>
+                    <Card.Title>ADD PRODUCTS</Card.Title>
                         <form onSubmit={addproduct}>
                             <input
                                 type="text"
@@ -94,6 +97,9 @@ export default function Addnewproduct() {
                     </div>
                 </div>
             </div>
+            
+            </Card.Body>
+            </Card>
             </center>
         </>
     );

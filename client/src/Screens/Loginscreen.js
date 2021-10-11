@@ -6,8 +6,18 @@ import { useEffect } from "react";
 import "../login.css";
 import Error from "../components/Error";
 import Loader from "../components/Loader";
+import GoogleLogin from 'react-google-login';
+import ReactDOM from 'react-dom';
+import { googlelogin } from "../actions/userAction";
 
 export default function Loginscreen() {
+
+  const responseGoogle = (response) => {
+    console.log(response)
+    //  const tokenId=response.tokenId
+    dispatch(googlelogin(response));
+
+  }
   const loginreducer = useSelector((state) => state.loginReducer);
   const { error, loading } = loginreducer;
 
@@ -88,13 +98,21 @@ export default function Loginscreen() {
                     Login
                   </button>
                 </form>
-                <a href="/registration" id="signup">
-                  Don't have account yet?
-                </a>
+                <div>
+                  <a href="/registration" id="signup">
+                    Don't have account yet?
+                  </a>
+                </div>
                 <br />
-                <a href="" id="signup">
-                  forget password
-                </a>
+
+                <div>
+                  <GoogleLogin
+                  clientId="89374715760-1elsiqujg5ti455h4kf82c8h9ipjci69.apps.googleusercontent.com"
+                  buttonText="Login with Google"
+                  onSuccess={responseGoogle}
+                  onFailure={responseGoogle}
+                  cookiePolicy={'single_host_origin'}
+                 /> </div>
               </div>
             </div>
           </div>
