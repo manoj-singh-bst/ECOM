@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getAllOrders } from '../actions/orderActions';
 import Loader from '../components/Loader';
 import Error from '../components/Error';
+import Card from 'react-bootstrap/esm/Card';
 export default function Orderlist() {
   const getallordersreducer = useSelector(state => state.getAllOrdersReducer);
   const {loading ,error ,orders}=getallordersreducer;
@@ -14,6 +15,9 @@ export default function Orderlist() {
   }, [])
   return (
     <>
+    <center>
+    <Card className="cardContainer" style={{marginTop:'20px' , padding:'15px' , width:'90%' }}   >
+    <Card.Body>
     {loading && (<Loader/>)}
     {error && <Error error="something went wrong"/>}
     <table className="table table-bordered">
@@ -44,6 +48,9 @@ export default function Orderlist() {
                     })}
                 </tbody>
             </table>
+            </Card.Body>
+            </Card>
+            </center>
     </>
   );
 }

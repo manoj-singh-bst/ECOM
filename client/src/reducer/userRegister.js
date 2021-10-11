@@ -122,3 +122,30 @@ export const updateReducer = (state = {}, action) => {
     return state;
 
 }
+
+
+export const googleloginReducer = (state = {}, action) => {
+    switch (action.type) {
+        case "USER_ GOOGLE_LOGIN_REQUEST": return {
+            ...state,
+            loading: true,
+        }
+
+        case "USER_GOOGLE_LOGIN_SUCCESS": return {
+            ...state,
+            loading: false,
+            success: true
+        }
+
+        case "USER_GOOGLE_LOGIN_FAILED": return {
+            ...state,
+            loading: false,
+            error: "invalid"
+        }
+        case "USER_GOOGLE_LOGOUT": return {
+            ...state,
+        }
+    }
+    return state;
+
+}

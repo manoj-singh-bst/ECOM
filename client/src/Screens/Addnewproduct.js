@@ -1,10 +1,11 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { useDispatch } from "react-redux";
-import addProductReducer from "../reducer/productReducer";
-import { addProduct } from "../actions/productActions";
+
+
+import React from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux'
+import  addProductReducer  from '../reducer/productReducer';
+import {addProduct} from '../actions/productActions'
+import Card from 'react-bootstrap/esm/Card';
 export default function Addnewproduct() {
   const [name, setname] = useState("");
   const [price, setprice] = useState("");
@@ -32,24 +33,24 @@ export default function Addnewproduct() {
     toast.success("success");
   };
 
-  return (
-    <>
-      <center>
-        <div className="row" style={{ width: "50%" }}>
-          <div className="col-md-5">
-            <div>
-              <h1>Product List</h1>
-              <form onSubmit={addproduct}>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="product name"
-                  required
-                  value={name}
-                  onChange={(e) => {
-                    setname(e.target.value);
-                  }}
-                />
+    return (
+        <>
+               <center> <Card className="cardContainer" style={{ width: '50%' ,padding:'20px',borderRadius:'5px' }}>
+                <Card.Body>
+            <div classNameName="row">
+                <div classNameName="col-md-5">
+                    <div>
+                    <Card.Title>ADD PRODUCTS</Card.Title>
+                        <form onSubmit={addproduct}>
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="product name"
+                                required
+                                value={name}
+                                onChange={(e) => { setname(e.target.value) }}
+                            />
+
 
                 <input
                   type="text"
@@ -112,10 +113,13 @@ export default function Addnewproduct() {
                 </button>
               </form>
             </div>
-          </div>
-        </div>
-      </center>
-      <ToastContainer />
-    </>
-  );
+
+            
+            </Card.Body>
+            </Card>
+            </center>
+        </>
+    );
+
+
 }

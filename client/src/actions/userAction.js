@@ -80,3 +80,18 @@ export const updateUser = (userid,updateduser ) => dispatch => {
     .catch(err => dispatch({ type: "USER_UPDATE_FAILED", payload: err })
     );
 }
+
+
+export const googlelogin = (response) => dispatch => {
+  dispatch({ type: "USER_GOOGLE_LOGIN_REQUEST" });
+  axios
+    .post("api/user/googlelogin", response)
+    .then(res => {
+      dispatch({ type: "USER_GOOGLE_LOGIN_SUCCESS" });
+      localStorage.setItem('currentUser', JSON.stringify(res.data))
+      window.location.href = '/'
+      console.log(res.data)
+
+    })
+    .catch(err => dispatch({ type: "USER_GOOGLE_LOGIN_FAILED", payload: err }));
+}
