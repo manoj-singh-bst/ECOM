@@ -3,6 +3,8 @@ import {
   getAllProductsReducer,
   getProductByIdReducer,
 } from "../reducer/productReducer";
+
+import LogRocket from "logrocket";
 import { CartReducer } from "../reducer/cartReducer";
 import { combineReducers } from "redux";
 import logger from "redux-logger";
@@ -23,6 +25,7 @@ import {
   getOrdersByUserIdReducer,
   placeOrderReducer,
 } from "../reducer/orderReducer";
+import log from "log-to-file";
 
 const finalReducer = combineReducers({
   getAllProductsReducer: getAllProductsReducer,
@@ -39,10 +42,12 @@ const finalReducer = combineReducers({
   getOrderByIdReducer: getOrderByIdReducer,
   placeOrderReducer: placeOrderReducer,
   addProductReviewReducer: addProductReviewReducer,
+
   getAllOrdersReducer:getAllOrdersReducer,
   addProductReviewReducer: addProductReviewReducer,
   updateReducer:updateReducer,
   googleloginReducer:googleloginReducer,
+
 });
 const currentUser = localStorage.getItem("currentUser")
   ? JSON.parse(localStorage.getItem("currentUser"))
@@ -61,6 +66,8 @@ const composeEnhancers = composeWithDevTools({});
 const store = createStore(
   finalReducer,
   initialState,
-  composeEnhancers(applyMiddleware(thunk, logger))
+  composeEnhancers(applyMiddleware(thunk, logger, LogRocket.reduxMiddleware()))
 );
+// log("store");
+// log("store", "my_log.log");
 export default store;

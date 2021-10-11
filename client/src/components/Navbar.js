@@ -1,16 +1,24 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../actions/userAction";
+import Googleauth from "./Googleauth";
 
 export default function Navbar() {
   const dispatch = useDispatch();
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const gmailuser = JSON.parse(localStorage.getItem("name"));
   const cartreducer = useSelector((state) => state.CartReducer);
   const { cartItems } = cartreducer;
 
+  // if (localStorage.getItem("token")) {
+  //   var a = cartItems.length;
+  // } else {
+  //   a = null;
+  // }
+
   return (
     <div>
-      <nav className="navbar navbar-expand-lg ">
+      <nav className="navbar navbar-expand-lg w-100">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
             Super Mart
@@ -29,7 +37,7 @@ export default function Navbar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <div className="navbar-nav ml-auto">
-              {currentUser ? (
+              {currentUser || gmailuser ? (
                 <div class="dropdown">
                   <button
                     class="btn btn-secondary dropdown-toggle"
@@ -69,7 +77,8 @@ export default function Navbar() {
               ) : (
                 <li className="nav-item">
                   <a className="nav-link" href=" /login">
-                    Login
+                    {/* <Googleauth /> */}
+                    login
                   </a>
                 </li>
               )}
@@ -78,6 +87,7 @@ export default function Navbar() {
                 <a className="nav-link" href="/cart">
                   <i class="fas fa-shopping-cart"></i>
                   {cartItems.length}
+                  {/* {a} */}
                 </a>
               </li>
             </div>

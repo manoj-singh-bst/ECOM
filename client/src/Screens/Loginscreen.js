@@ -3,12 +3,15 @@ import { useState } from "react";
 import { loginUser } from "../actions/userAction";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../login.css";
+
 import Error from "../components/Error";
 import Loader from "../components/Loader";
 import GoogleLogin from 'react-google-login';
 import ReactDOM from 'react-dom';
 import { googlelogin } from "../actions/userAction";
+
 
 export default function Loginscreen() {
 
@@ -43,19 +46,18 @@ export default function Loginscreen() {
     <>
       <center>
         <div
-          classNameName="row"
+          className="row"
           style={{
             width: "50%",
             marginTop: "100px",
             border: " 1px solid, grey",
           }}
         >
-          <div classNameName="col-md-5 login"></div>
+          <div className="col-md-5 login"></div>
         </div>
       </center>
       <div class="container my-5 z-depth-1 man">
         <br />
-        <h1 style={{ textAlign: "center" }}>WELCOME TO SUPER MART</h1>
         <section class="dark-grey-text p-5 ">
           <div class="row">
             <div class="col-md-5 mb-4 mb-md-0">
@@ -69,7 +71,7 @@ export default function Loginscreen() {
             </div>
 
             <div class="col-md-7 mb-lg-0 mb-4 ">
-              <div>
+              <div className="logincontainer">
                 <h2 class="font-weight-bold deep-orange-lighter-hover mb-3 ">
                   Login
                 </h2>
@@ -97,7 +99,10 @@ export default function Loginscreen() {
                   <button type="submit" class="btn btn-dark mt-3 me-auto">
                     Login
                   </button>
+                  {/* <Googleauth /> */}
+                  <Facebookauth />
                 </form>
+
                 <div>
                   <a href="/registration" id="signup">
                     Don't have account yet?
@@ -113,6 +118,8 @@ export default function Loginscreen() {
                   onFailure={responseGoogle}
                   cookiePolicy={'single_host_origin'}
                  /> </div>
+
+               
               </div>
             </div>
           </div>

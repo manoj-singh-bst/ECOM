@@ -7,6 +7,8 @@ import { useSelector } from "react-redux";
 import Filter from "../components/Filter";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
+import Footer from "./Footer";
+import Crousels from "./Crousels";
 
 export default function Homescreen() {
   const getallproductsstate = useSelector(
@@ -21,6 +23,9 @@ export default function Homescreen() {
   return (
     <div>
       <Filter />
+
+      <Crousels />
+
       <div className="row justify-content-center mt-5">
         {loading ? (
           <Loader />
@@ -36,6 +41,7 @@ export default function Homescreen() {
           })
         )}
       </div>
+      <Footer />
     </div>
   );
 }
