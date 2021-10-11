@@ -3,9 +3,13 @@ import { useState } from "react";
 import { loginUser } from "../actions/userAction";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../login.css";
+
 import Error from "../components/Error";
 import Loader from "../components/Loader";
+import Googleauth from "../components/Googleauth";
+import Facebookauth from "../components/Facebookauth";
 
 export default function Loginscreen() {
   const loginreducer = useSelector((state) => state.loginReducer);
@@ -33,19 +37,18 @@ export default function Loginscreen() {
     <>
       <center>
         <div
-          classNameName="row"
+          className="row"
           style={{
             width: "50%",
             marginTop: "100px",
             border: " 1px solid, grey",
           }}
         >
-          <div classNameName="col-md-5 login"></div>
+          <div className="col-md-5 login"></div>
         </div>
       </center>
       <div class="container my-5 z-depth-1 man">
         <br />
-        <h1 style={{ textAlign: "center" }}>WELCOME TO SUPER MART</h1>
         <section class="dark-grey-text p-5 ">
           <div class="row">
             <div class="col-md-5 mb-4 mb-md-0">
@@ -59,7 +62,7 @@ export default function Loginscreen() {
             </div>
 
             <div class="col-md-7 mb-lg-0 mb-4 ">
-              <div>
+              <div className="logincontainer">
                 <h2 class="font-weight-bold deep-orange-lighter-hover mb-3 ">
                   Login
                 </h2>
@@ -87,14 +90,25 @@ export default function Loginscreen() {
                   <button type="submit" class="btn btn-dark mt-3 me-auto">
                     Login
                   </button>
+                  {/* <Googleauth /> */}
+                  <Facebookauth />
                 </form>
-                <a href="/registration" id="signup">
+                <a
+                  style={{ textDecoration: "none" }}
+                  href="/registration"
+                  id="signup"
+                >
                   Don't have account yet?
                 </a>
                 <br />
-                <a href="" id="signup">
+                {/* <a style={{ textDecoration: "none" }} href="" id="signup">
                   forget password
-                </a>
+                </a> */}
+                <p className="forget-password ">
+                  <Link style={{ textDecoration: "none" }} to={"/forget"}>
+                    Forget password
+                  </Link>
+                </p>
               </div>
             </div>
           </div>
